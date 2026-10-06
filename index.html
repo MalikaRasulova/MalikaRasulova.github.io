@@ -518,14 +518,14 @@
     </section>
 
     <section id="projects">
-      <p class="eyebrow"><span data-i18n="pr_eyebrow">Pet project</span><span class="count" data-i18n="pr_note">repository is private</span></p>
+      <p class="eyebrow"><span data-i18n="pr_eyebrow">Pet project</span><span class="count" data-i18n="pr_note">open source</span></p>
       <div class="projects">
 
-        <article class="project project--static">
-          <div class="project-name">AICommentModerator</div>
+        <a class="project" href="https://github.com/MalikaRasulova/AICommentModerator" target="_blank" rel="noopener">
+          <div class="project-name">AICommentModerator <span class="arrow">&#8599;</span></div>
           <p class="project-desc" data-i18n="p1">A Telegram bot that moderates comments with an LLM: an ASP.NET Core webhook takes the update, the model decides whether the comment passes, and every decision is written to a PostgreSQL audit log.</p>
-          <div class="project-side"><span class="lang">C# &middot; ASP.NET Core &middot; PostgreSQL</span><span class="year">2025</span></div>
-        </article>
+          <div class="project-side"><span class="lang">C# &middot; ASP.NET Core &middot; PostgreSQL</span><span class="year">2026</span></div>
+        </a>
 
       </div>
     </section>
@@ -609,7 +609,7 @@ var I18N = {
     ai_body: "<ul><li>I work with AI agents daily (Claude Code, GitHub Copilot, Google Gemini): feature work, refactoring and debugging &mdash; AI is part of the workflow, not an occasional experiment.</li><li>I use AI for code review, for generating unit and integration tests, and for reading through legacy code.</li><li>I have shipped LLM features into a product: prompt design, handling model responses and quality control on the backend side.</li></ul>",
     ai_note: "<b>Security and control:</b> the code sits in a self-hosted GitLab inside the bank perimeter and never leaves it; client and confidential data is never sent to a model; only approved corporate tools are used. AI-assisted code goes through mandatory review, branch protection and CI &mdash; a direct push to main is not possible.",
     pr_eyebrow: "Pet project",
-    pr_note: "repository is private",
+    pr_note: "open source",
     p1: "A Telegram bot that moderates comments with an LLM: an ASP.NET Core webhook takes the update, the model decides whether the comment passes, and every decision is written to a PostgreSQL audit log.",
     ed_eyebrow: "Education and languages", ed_h: "Education", lg_h: "Languages",
     ed_body: "Samarkand Law College &mdash; Jurisprudence, specialised secondary, 2018",
@@ -657,7 +657,7 @@ var I18N = {
     ai_body: "<ul><li>Har kuni AI agentlar bilan ishlayman (Claude Code, GitHub Copilot, Google Gemini): fichalar, refaktoring va debugging &mdash; AI ish jarayonimning bir qismi, vaqti-vaqti bilan ishlatiladigan vosita emas.</li><li>AI&rsquo;dan code review, unit va integratsion testlar generatsiyasi hamda legacy kodni tahlil qilishda foydalanaman.</li><li>Mahsulotga LLM funksiyasini joriy qildim: promptlarni loyihalash, model javoblarini qayta ishlash va backend tomonda natija sifatini nazorat qilish.</li></ul>",
     ai_note: "<b>Xavfsizlik va nazorat:</b> kod bank perimetri ichidagi self-hosted GitLab&rsquo;da saqlanadi va undan tashqariga chiqmaydi; mijoz va maxfiy ma&rsquo;lumotlar modelga uzatilmaydi; faqat kelishilgan korporativ vositalar ishlatiladi. AI yordamida yozilgan kod majburiy review, branch protection va CI&rsquo;dan o&rsquo;tadi &mdash; main&rsquo;ga to&rsquo;g&rsquo;ridan-to&rsquo;g&rsquo;ri push qilish mumkin emas.",
     pr_eyebrow: "Shaxsiy loyiha",
-    pr_note: "repo yopiq",
+    pr_note: "kodi ochiq",
     p1: "Telegram izohlarini LLM yordamida moderatsiya qiladigan bot: ASP.NET Core webhook update&rsquo;ni qabul qiladi, model izoh o&rsquo;tadimi yoki yo&rsquo;qmi deb qaror qiladi, har bir qaror PostgreSQL audit jurnaliga yoziladi.",
     ed_eyebrow: "Ta&rsquo;lim va tillar", ed_h: "Ta&rsquo;lim", lg_h: "Tillar",
     ed_body: "Samarqand yuridik kolleji &mdash; Yurisprudensiya, o&rsquo;rta maxsus, 2018",
@@ -705,7 +705,7 @@ var I18N = {
     ai_body: "<ul><li>Ежедневно работаю с AI-агентами (Claude Code, GitHub Copilot, Google Gemini): разработка фич, рефакторинг и отладка &mdash; AI встроен в рабочий процесс, а не используется эпизодически.</li><li>Использую AI для code review и генерации unit- и интеграционных тестов, а также для анализа legacy-кода.</li><li>Интегрировала LLM-функциональность в продукт: проектирование промптов, обработка ответов модели и контроль качества результата на стороне backend.</li></ul>",
     ai_note: "<b>Безопасность и контроль:</b> код размещён в self-hosted GitLab внутри банковского периметра и не покидает его; клиентские и конфиденциальные данные в модели не передаются; используются только согласованные корпоративные инструменты. Код, написанный с помощью AI, проходит обязательный review, branch protection и CI &mdash; прямой push в main исключён.",
     pr_eyebrow: "Личный проект",
-    pr_note: "репозиторий закрыт",
+    pr_note: "открытый код",
     p1: "Telegram-бот, который модерирует комментарии с помощью LLM: webhook на ASP.NET Core принимает update, модель решает, проходит ли комментарий, каждое решение пишется в audit-журнал PostgreSQL.",
     ed_eyebrow: "Образование и языки", ed_h: "Образование", lg_h: "Языки",
     ed_body: "Самаркандский юридический колледж &mdash; Юриспруденция, среднее специальное, 2018",
