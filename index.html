@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Malika Rasulova - backend developer, Tashkent. 4 years on C# / .NET in banking and enterprise systems, now moving into Java. EN / UZ / RU.">
+<title>Malika Rasulova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root{
+    --paper:#f3f3f0;
+    --surface:#ffffff;
+    --ink:#15181b;
+    --muted:#5e6670;
+    --faint:#8b929a;
+    --hair:#dcddd8;
+    --hair-strong:#c6c8c1;
+    --accent:#a8491a;
+    --sage:#6e7a63;
+    --on-accent:#fffaf6;
+    --ring:rgba(168,73,26,.18);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0e1012;
+      --surface:#16191c;
+      --ink:#e9eae6;
+      --muted:#9ba2a8;
+      --faint:#767d84;
+      --hair:#252a2e;
+      --hair-strong:#363c41;
+      --accent:#e89250;
+      --sage:#9aa98b;
+      --on-accent:#17120c;
+      --ring:rgba(232,146,80,.22);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0e1012;
+    --surface:#16191c;
+    --ink:#e9eae6;
+    --muted:#9ba2a8;
+    --faint:#767d84;
+    --hair:#252a2e;
+    --hair-strong:#363c41;
+    --accent:#e89250;
+    --sage:#9aa98b;
+    --on-accent:#17120c;
+    --ring:rgba(232,146,80,.22);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .mono{font-family:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace}
+
+  .skip{
+    position:absolute;left:-9999px;top:0;z-index:9;
+    background:var(--ink);color:var(--paper);padding:10px 14px;font-size:14px;
+  }
+  .skip:focus{left:12px;top:12px}
+
+  .shell{
+    max-width:1140px;
+    margin:0 auto;
+    padding-inline:20px;
+    padding-block:0 80px;
+    display:grid;
+    grid-template-columns:minmax(0,286px) minmax(0,1fr);
+    gap:64px;
+  }
+
+  /* ================= rail ================= */
+  .rail{padding-block:60px 0}
+  .rail-inner{
+    position:sticky;top:calc(env(safe-area-inset-top, 0px) + 32px);
+    display:flex;flex-direction:column;gap:26px;
+    max-height:calc(100vh - 64px);overflow:auto;
+    scrollbar-width:none;
+  }
+  .rail-inner::-webkit-scrollbar{width:0;height:0}
+
+  .portrait-wrap{position:relative;width:124px;height:124px}
+  .portrait{
+    width:124px;height:124px;border-radius:50%;object-fit:cover;display:block;
+    filter:saturate(.92) contrast(1.02);
+  }
+  .portrait-wrap::after{
+    content:"";position:absolute;inset:-7px;border-radius:50%;
+    border:1px solid var(--hair-strong);
+  }
+  .portrait-wrap::before{
+    content:"";position:absolute;inset:-7px;border-radius:50%;
+    border:1px solid transparent;border-top-color:var(--accent);
+    transform:rotate(28deg);
+  }
+
+  h1{
+    font-family:"Bricolage Grotesque","Segoe UI",sans-serif;
+    font-weight:700;font-size:37px;line-height:1.0;margin:0;
+    letter-spacing:-.03em;
+  }
+  .role{margin:9px 0 0;color:var(--muted);font-size:15.5px;max-width:30ch}
+  .role b{color:var(--ink);font-weight:600}
+  .pill{
+    margin:14px 0 0;display:inline-flex;align-items:center;gap:8px;
+    font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--sage);border:1px solid var(--hair-strong);border-radius:999px;padding:5px 11px 5px 9px;
+  }
+  .pill .dot{width:6px;height:6px;border-radius:50%;background:var(--sage);flex:none}
+
+  .toc{display:flex;flex-direction:column;gap:1px;border-left:1px solid var(--hair)}
+  .toc a{
+    font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--faint);text-decoration:none;padding:5px 0 5px 14px;
+    border-left:2px solid transparent;margin-left:-1px;transition:color .15s ease,border-color .15s ease;
+  }
+  .toc a:hover{color:var(--ink)}
+  .toc a[aria-current="true"]{color:var(--accent);border-left-color:var(--accent)}
+
+  .links{display:flex;flex-direction:column;font-size:14px}
+  .links a{
+    display:flex;justify-content:space-between;gap:12px;align-items:baseline;
+    padding:9px 0;border-bottom:1px solid var(--hair);
+    text-decoration:none;color:var(--ink);
+  }
+  .links a:first-child{border-top:1px solid var(--hair)}
+  .links a .tag{color:var(--faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase;flex:none;font-family:"JetBrains Mono",monospace}
+  .links a:hover,.links a:hover .tag{color:var(--accent)}
+
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .seg{display:flex;border:1px solid var(--hair-strong);background:var(--surface)}
+  .seg button,.theme-btn{
+    appearance:none;border:0;background:none;cursor:pointer;
+    font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.09em;
+    color:var(--faint);padding:6px 9px;line-height:1.2;
+  }
+  .seg button + button{border-left:1px solid var(--hair)}
+  .seg button:hover,.theme-btn:hover{color:var(--ink)}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+  .theme-btn{border:1px solid var(--hair-strong);background:var(--surface);display:flex;align-items:center;gap:7px}
+  .theme-btn .glyph{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+
+  .meta{font-size:12.5px;color:var(--faint);line-height:1.8;margin:0;font-family:"JetBrains Mono",monospace}
+
+  /* ================= main ================= */
+  main{padding-block:60px 0;min-width:0}
+  section{padding-block:0 56px;scroll-margin-top:28px}
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+    margin:0 0 20px;padding-bottom:9px;border-bottom:1px solid var(--hair);
+    display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  }
+  .eyebrow .count{color:var(--hair-strong)}
+  h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:20px;margin:0 0 12px;letter-spacing:-.015em}
+  p{margin:0 0 14px;max-width:64ch}
+  .lede{font-size:21px;line-height:1.5;max-width:54ch;letter-spacing:-.011em;margin-bottom:16px}
+  .lede b{font-weight:600}
+
+  .now{
+    background:var(--surface);border:1px solid var(--hair);
+    border-left:2px solid var(--accent);
+    padding:15px 20px;display:flex;flex-direction:column;gap:5px;margin-top:4px;
+  }
+  .now-tag{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-family:"JetBrains Mono",monospace}
+  .now-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;box-shadow:0 0 0 4px var(--ring)}
+  .now p{margin:0;font-size:16px}
+
+  /* ---------- experience timeline ---------- */
+  .timeline{border-left:1px solid var(--hair);margin-left:4px}
+  .job{padding:0 0 30px 26px;position:relative}
+  .job:last-child{padding-bottom:0}
+  .job::before{
+    content:"";position:absolute;left:-4.5px;top:8px;
+    width:8px;height:8px;border-radius:50%;
+    background:var(--paper);border:1px solid var(--hair-strong);
+  }
+  .job.current::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
+  .job-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 16px}
+  .job-head h3{
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18.5px;
+    margin:0;letter-spacing:-.018em;
+  }
+  .job-head .place{font-family:"Source Sans 3",sans-serif;font-weight:400;font-size:14.5px;color:var(--faint)}
+  .dates{font-size:11.5px;color:var(--faint);white-space:nowrap;font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
+  .job-role{margin:3px 0 12px;font-size:14.5px;color:var(--accent);font-weight:600;letter-spacing:.005em}
+  .job-body h4{
+    font-family:"Source Sans 3",sans-serif;font-size:15.5px;font-weight:600;
+    margin:16px 0 7px;color:var(--ink);
+  }
+  .job-body h4:first-child{margin-top:0}
+  .job-body ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+  .job-body li{position:relative;padding-left:17px;font-size:15.5px;color:var(--muted);max-width:66ch}
+  .job-body li::before{
+    content:"";position:absolute;left:0;top:.68em;
+    width:7px;height:1px;background:var(--hair-strong);
+  }
+  .job-stack{
+    margin:14px 0 0;font-size:12.5px;color:var(--muted);max-width:none;
+    display:flex;gap:9px;flex-wrap:wrap;align-items:baseline;
+  }
+  .job-stack b{
+    color:var(--faint);font-weight:400;letter-spacing:.1em;text-transform:uppercase;
+    font-size:10.5px;font-family:"JetBrains Mono",monospace;
+  }
+
+  /* ---------- skills ---------- */
+  .skills{display:flex;flex-direction:column}
+  .skill-row{
+    display:grid;grid-template-columns:minmax(0,172px) minmax(0,1fr);gap:3px 24px;
+    padding:12px 0;border-bottom:1px solid var(--hair);
+  }
+  .skill-row:first-child{border-top:1px solid var(--hair)}
+  .skill-key{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding-top:4px}
+  .skill-val{font-size:15.5px}
+
+  /* ---------- ai ---------- */
+  .ai-note{
+    margin:16px 0 0;font-size:14px;color:var(--muted);
+    border-left:2px solid var(--sage);padding-left:15px;max-width:66ch;
+  }
+  .ai-note b{color:var(--ink);font-weight:600}
+
+  /* ---------- repos ---------- */
+  .projects{display:flex;flex-direction:column}
+  .project{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 18px;align-items:baseline;
+    padding:14px 0;border-top:1px solid var(--hair);text-decoration:none;
+  }
+  .project:last-child{border-bottom:1px solid var(--hair)}
+  .project-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:17px;letter-spacing:-.015em}
+  .project:hover .project-name{color:var(--accent)}
+  .project:hover .arrow{opacity:1;transform:translateX(2px)}
+  .arrow{color:var(--accent);opacity:0;transition:opacity .15s ease,transform .15s ease;font-size:14px;display:inline-block}
+  .project-desc{grid-column:1;color:var(--muted);font-size:15px;max-width:58ch;margin:0}
+  .project-side{grid-row:1 / span 2;grid-column:2;display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .lang{font-size:11px;letter-spacing:.06em;padding:3px 8px;border:1px solid var(--hair);color:var(--faint);font-family:"JetBrains Mono",monospace}
+  .year{font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",monospace}
+
+  /* ---------- education / languages ---------- */
+  .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px 32px}
+  .duo h3{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 8px;font-weight:400}
+  .duo p{margin:0;font-size:15.5px}
+
+  /* ---------- contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair)}
+  .contact-grid a{
+    background:var(--surface);padding:18px 20px;text-decoration:none;
+    display:flex;flex-direction:column;gap:3px;transition:background .15s ease;
+  }
+  .contact-grid a:hover{background:var(--paper)}
+  .contact-grid .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .contact-grid .v{font-size:16px;color:var(--ink)}
+  .contact-grid a:hover .v{color:var(--accent)}
+
+  footer{
+    grid-column:1 / -1;border-top:1px solid var(--hair);padding-top:22px;
+    display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;
+    font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.04em;
+  }
+
+  :where(a,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  @media (max-width:900px){
+    .shell{grid-template-columns:minmax(0,1fr);gap:0}
+    .rail{padding-block:40px 0}
+    .rail-inner{position:static;max-height:none;overflow:visible;gap:22px}
+    .toc{display:none}
+    main{padding-block:36px 0}
+    h1{font-size:33px}
+    .lede{font-size:19px}
+    .project{grid-template-columns:minmax(0,1fr)}
+    .project-side{grid-row:auto;grid-column:1;padding-top:6px}
+    .skill-row{grid-template-columns:minmax(0,1fr)}
+    .job{padding-left:22px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+
+  @media print{
+    .toc,.controls,.skip{display:none}
+    .shell{display:block;max-width:none;padding:0}
+    .rail-inner{position:static;max-height:none}
+    body{background:#fff;color:#000;font-size:11pt}
+    .job,section{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<div class="shell">
+
+  <aside class="rail">
+    <div class="rail-inner">
+
+      <div>
+        <div class="portrait-wrap">
+          <img class="portrait" src="portrait.jpg" alt="Malika Rasulova" width="124" height="124">
+        </div>
+        <h1>Malika<br>Rasulova</h1>
+        <p class="role" data-i18n="role"><b>Backend developer</b> &mdash; 4 years on C# / .NET in banking and enterprise systems. Currently learning Java.</p>
+        <p class="pill" data-i18n="pill_open"><span class="dot"></span>Open to offers</p>
+      </div>
+
+      <nav class="toc" aria-label="Sections">
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#experience" data-i18n="nav_xp">Experience</a>
+        <a href="#skills" data-i18n="nav_skills">Skills</a>
+        <a href="#ai" data-i18n="nav_ai">AI</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#education" data-i18n="nav_edu">Education</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <nav class="links">
+        <a href="mailto:mrxonly616@gmail.com">
+          <span>mrxonly616@gmail.com</span><span class="tag">Email</span>
+        </a>
+        <a href="https://t.me/malika53" target="_blank" rel="noopener">
+          <span>@malika53</span><span class="tag">Telegram &#8599;</span>
+        </a>
+        <a href="https://www.linkedin.com/in/malika53" target="_blank" rel="noopener">
+          <span>in/malika53</span><span class="tag">LinkedIn &#8599;</span>
+        </a>
+        <a href="https://github.com/MalikaRasulova" target="_blank" rel="noopener">
+          <span>MalikaRasulova</span><span class="tag">GitHub &#8599;</span>
+        </a>
+      </nav>
+
+      <div class="controls">
+        <div class="seg" role="group" aria-label="Language">
+          <button type="button" id="btn-lang-en" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" id="btn-lang-uz" data-lang="uz" aria-pressed="false">UZ</button>
+          <button type="button" id="btn-lang-ru" data-lang="ru" aria-pressed="false">RU</button>
+        </div>
+        <button type="button" class="theme-btn" id="theme-btn">
+          <span class="glyph" aria-hidden="true"></span><span id="theme-label">AUTO</span>
+        </button>
+      </div>
+
+      <p class="meta" data-i18n="meta">Tashkent, Uzbekistan<br>Uzbek &middot; Russian C1 &middot; English B1</p>
+
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <section id="about">
+      <p class="eyebrow"><span data-i18n="ab_eyebrow">About</span></p>
+      <p class="lede" data-i18n="ab_lede">Backend developer with four years of building enterprise systems in C# and .NET: bank credit monitoring, internal bank products, document-workflow automation platforms, government information systems and e-commerce.</p>
+      <p data-i18n="ab_body">I design REST APIs, integrate with core banking and external registries, and build SSO authorisation and role-based access models. I use AI tools daily in development and ship LLM features into products, within banking security requirements. I value clean code, a clear architecture and solutions that keep working.</p>
+      <p data-i18n="ab_stack">The stack is a tool, not an identity. My experience runs deepest in .NET, and I am moving into Java now &mdash; the architecture, the data modelling and the integration work carry over between platforms.</p>
+
+      <div class="now">
+        <div class="now-tag"><span class="dot"></span><span data-i18n="now_tag">Now</span></div>
+        <p data-i18n="now_body">Middle .NET developer at BRB-TECH, Tashkent &mdash; credit monitoring and internal banking products.</p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <p class="eyebrow"><span data-i18n="xp_eyebrow">Experience</span><span class="count">2022 &mdash; 2026</span></p>
+
+      <div class="timeline">
+
+        <article class="job current">
+          <div class="job-head">
+            <h3>BRB-TECH <span class="place">&mdash; <span data-i18n="j1_place">Tashkent</span></span></h3>
+            <span class="dates" data-i18n="j1_dates">Sep 2025 &mdash; present</span>
+          </div>
+          <p class="job-role" data-i18n="j1_role">Middle .NET developer</p>
+          <div class="job-body" data-i18n="j1_body">
+            <h4>Credit monitoring &mdash; credit portfolio control and the credit committee process</h4>
+            <ul>
+              <li>Backend modules in C# (ASP.NET Core): domain logic, REST API and background data-processing jobs.</li>
+              <li>Portfolio monitoring: overdue payments, collateral state and risk indicators, with automatic alerts to the responsible staff.</li>
+              <li>Credit committee workflow: an application moving through inspector &rarr; conclusion &rarr; decision, with routing and role-based rights.</li>
+              <li>Integration with core banking (ABS) and external registries: clients, loan contracts and payment schedules.</li>
+            </ul>
+            <h4>BRB Corex &mdash; workload analytics and task activity for staff</h4>
+            <ul>
+              <li>Server side in C# (ASP.NET Core): domain logic, REST API and background task synchronisation.</li>
+              <li>Jira Forge App integration: automatic task export and aggregated statistics published to the database.</li>
+              <li>SSO through Jira, giving every employee a single sign-on.</li>
+              <li>Optimised data processing and reporting for internal bank analytics.</li>
+            </ul>
+            <h4>RM Tracking &mdash; task management and client work for Relationship Managers</h4>
+            <ul>
+              <li>Designed and built a hierarchical role and permission model (Head / Senior / Junior).</li>
+              <li>Two authentication paths: SSO via Keycloak and classic login and password.</li>
+              <li>Database schema for tasks, clients and workload metrics.</li>
+              <li>Modules for the client base and for tracking task completion down the reporting line.</li>
+            </ul>
+          </div>
+          <p class="job-stack"><b data-i18n="lbl_stack">Stack</b> <span>C#, .NET, ASP.NET Core, Entity Framework Core, REST API, Keycloak (SSO), Jira Forge API, Docker, SQL</span></p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Smart Software Development <span class="place">&mdash; ssd.uz</span></h3>
+            <span class="dates" data-i18n="j2_dates">Oct 2024 &mdash; Sep 2025</span>
+          </div>
+          <p class="job-role" data-i18n="j2_role">C# / .NET developer</p>
+          <div class="job-body" data-i18n="j2_body">
+            <h4>ADAMS (adams.uz) &mdash; document workflow and business process automation</h4>
+            <ul>
+              <li>A platform for organisations in Uzbekistan: non-technical users configure access rights, document numbering and routing rules without a developer.</li>
+              <li>Built and maintained REST APIs on ASP.NET Core.</li>
+              <li>Implemented complex integrations with external systems and services.</li>
+              <li>Worked on the route and permission builder that users configure themselves.</li>
+            </ul>
+          </div>
+          <p class="job-stack"><b data-i18n="lbl_stack">Stack</b> <span>C#, ASP.NET Core, Entity Framework Core, REST API, RDBMS</span></p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>WEBASE <span class="place">&mdash; <span data-i18n="j3_place">Tashkent</span></span></h3>
+            <span class="dates" data-i18n="j3_dates">Jan 2024 &mdash; Sep 2024</span>
+          </div>
+          <p class="job-role" data-i18n="j3_role">Web developer</p>
+          <div class="job-body" data-i18n="j3_body">
+            <h4>Chamber of Commerce and Industry of Uzbekistan</h4>
+            <ul>
+              <li>Digitised the Chamber document flow so entrepreneurs reach its services faster and more transparently.</li>
+              <li>Integration with internal government systems; report generation and visualisation; compliance with local regulations.</li>
+            </ul>
+            <h4>Ministry of Sport &mdash; national system for sports schools</h4>
+            <ul>
+              <li>Student records, teacher effectiveness and attendance control.</li>
+              <li>Reporting and visualisation of key metrics: attendance, performance, teacher activity.</li>
+            </ul>
+          </div>
+          <p class="job-stack"><b data-i18n="lbl_method">Methods</b> <span>Scrum, Waterfall</span></p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Newline Group <span class="place">&mdash; NL-group</span></h3>
+            <span class="dates" data-i18n="j4_dates">Jul 2023 &mdash; Dec 2023</span>
+          </div>
+          <p class="job-role" data-i18n="j4_role">Backend developer</p>
+          <div class="job-body" data-i18n="j4_body">
+            <h4>EvoMarket API &mdash; e-commerce</h4>
+            <ul>
+              <li>Backend services and APIs for an online shopping platform.</li>
+            </ul>
+            <h4>AuraERP &mdash; business process control</h4>
+            <ul>
+              <li>Stock movement across warehouse and shops, and supplier work.</li>
+              <li>Built the warehouse module, integrated it with the rest of the system and automated the key storage and transfer operations.</li>
+            </ul>
+          </div>
+          <p class="job-stack"><b data-i18n="lbl_stack">Stack</b> <span>Microservices, ASP.NET, JWT, Docker, GitHub Actions, CI, Deployment, SSH</span></p>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>PDP Academy <span class="place">&mdash; <span data-i18n="j5_place">Tashkent</span></span></h3>
+            <span class="dates" data-i18n="j5_dates">Oct 2022 &mdash; May 2023</span>
+          </div>
+          <p class="job-role" data-i18n="j5_role">Sales manager</p>
+          <div class="job-body" data-i18n="j5_body">
+            <ul>
+              <li>Finding and winning clients, collecting and researching market information.</li>
+              <li>Meeting the sales plan, signing contracts and closing deals.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <p class="eyebrow"><span data-i18n="sk_eyebrow">Skills</span></p>
+      <div class="skills">
+        <div class="skill-row"><div class="skill-key" data-i18n="sk_lang">Languages &amp; platforms</div><div class="skill-val">C#, .NET, ASP.NET Core</div></div>
+        <div class="skill-row"><div class="skill-key" data-i18n="sk_data">Data</div><div class="skill-val" data-i18n="sk_data_v">Entity Framework Core (Code First / Database First), RDBMS, SQL, database schema design</div></div>
+        <div class="skill-row"><div class="skill-key" data-i18n="sk_arch">Architecture</div><div class="skill-val" data-i18n="sk_arch_v">REST API, microservices, OOP, SOLID, reverse proxy</div></div>
+        <div class="skill-row"><div class="skill-key" data-i18n="sk_sec">Security</div><div class="skill-val" data-i18n="sk_sec_v">SSO (Keycloak, Jira), JWT, hierarchical role-based access models</div></div>
+        <div class="skill-row"><div class="skill-key" data-i18n="sk_infra">Infrastructure</div><div class="skill-val">Docker, GitHub Actions, CI, Deployment, SSH</div></div>
+        <div class="skill-row"><div class="skill-key" data-i18n="sk_integr">Integrations</div><div class="skill-val" data-i18n="sk_integr_v">Jira Forge API, external and government services</div></div>
+        <div class="skill-row"><div class="skill-key" data-i18n="sk_proc">Process</div><div class="skill-val">Agile, Scrum, Waterfall</div></div>
+        <div class="skill-row"><div class="skill-key" data-i18n="sk_next">Learning now</div><div class="skill-val">Java</div></div>
+      </div>
+    </section>
+
+    <section id="ai">
+      <p class="eyebrow"><span data-i18n="ai_eyebrow">AI in development</span></p>
+      <div class="job-body" data-i18n="ai_body">
+        <ul>
+          <li>I work with AI agents daily (Claude Code, GitHub Copilot): feature work, refactoring and debugging &mdash; AI is part of the workflow, not an occasional experiment.</li>
+          <li>I use AI for code review, for generating unit and integration tests, and for reading through legacy code.</li>
+          <li>I have shipped LLM features into a product: prompt design, handling model responses and quality control on the backend side.</li>
+        </ul>
+      </div>
+      <p class="ai-note" data-i18n="ai_note"><b>Security and control:</b> the code sits in a self-hosted GitLab inside the bank perimeter and never leaves it; client and confidential data is never sent to a model; only approved corporate tools are used. AI-assisted code goes through mandatory review, branch protection and CI &mdash; a direct push to main is not possible.</p>
+    </section>
+
+    <section id="projects">
+      <p class="eyebrow"><span data-i18n="pr_eyebrow">Pet projects on GitHub</span><span class="count">05</span></p>
+      <div class="projects">
+
+        <a class="project" href="https://github.com/MalikaRasulova/ToDoApp" target="_blank" rel="noopener">
+          <div class="project-name">ToDoApp <span class="arrow">&#8599;</span></div>
+          <p class="project-desc" data-i18n="p1">Task manager: add, edit and mark items as done.</p>
+          <div class="project-side"><span class="lang">C#</span><span class="year">2026</span></div>
+        </a>
+
+        <a class="project" href="https://github.com/MalikaRasulova/QuestionCardVisibility" target="_blank" rel="noopener">
+          <div class="project-name">QuestionCardVisibility <span class="arrow">&#8599;</span></div>
+          <p class="project-desc" data-i18n="p2">An HTML page that controls how question cards are shown and hidden.</p>
+          <div class="project-side"><span class="lang">HTML</span><span class="year">2025</span></div>
+        </a>
+
+        <a class="project" href="https://github.com/MalikaRasulova/AcademyERP" target="_blank" rel="noopener">
+          <div class="project-name">AcademyERP <span class="arrow">&#8599;</span></div>
+          <p class="project-desc" data-i18n="p3">Management system for a training centre: groups, students and payments.</p>
+          <div class="project-side"><span class="lang">C#</span><span class="year">2024</span></div>
+        </a>
+
+        <a class="project" href="https://github.com/MalikaRasulova/Mini-Instagram" target="_blank" rel="noopener">
+          <div class="project-name">Mini-Instagram <span class="arrow">&#8599;</span></div>
+          <p class="project-desc" data-i18n="p4">A stripped-down social feed: posts, comments and likes.</p>
+          <div class="project-side"><span class="lang">C#</span><span class="year">2023</span></div>
+        </a>
+
+        <a class="project" href="https://github.com/MalikaRasulova/ProjectMVC" target="_blank" rel="noopener">
+          <div class="project-name">ProjectMVC <span class="arrow">&#8599;</span></div>
+          <p class="project-desc" data-i18n="p5">Written to get hands-on with the ASP.NET MVC pattern.</p>
+          <div class="project-side"><span class="lang">C#</span><span class="year">2023</span></div>
+        </a>
+
+      </div>
+    </section>
+
+    <section id="education">
+      <p class="eyebrow"><span data-i18n="ed_eyebrow">Education and languages</span></p>
+      <div class="duo">
+        <div>
+          <h3 data-i18n="ed_h">Education</h3>
+          <p data-i18n="ed_body">Samarkand Law College &mdash; Jurisprudence, specialised secondary, 2018</p>
+        </div>
+        <div>
+          <h3 data-i18n="lg_h">Languages</h3>
+          <p data-i18n="lg_body">Uzbek &mdash; native<br>Russian &mdash; C1, advanced<br>English &mdash; B1, intermediate</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="eyebrow"><span data-i18n="ct_eyebrow">Contact</span></p>
+      <h2 data-i18n="ct_head">Backend work and collaboration</h2>
+      <p data-i18n="ct_body">Open to .NET backend roles and project work. Email or Telegram gets the fastest reply.</p>
+      <div class="contact-grid">
+        <a href="mailto:mrxonly616@gmail.com"><span class="k">Email</span><span class="v">mrxonly616@gmail.com</span></a>
+        <a href="https://t.me/malika53" target="_blank" rel="noopener"><span class="k">Telegram</span><span class="v">@malika53</span></a>
+        <a href="https://www.linkedin.com/in/malika53" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">in/malika53</span></a>
+        <a href="https://github.com/MalikaRasulova" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">MalikaRasulova</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Malika Rasulova</span>
+    <span data-i18n="foot">Tashkent, Uzbekistan</span>
+  </footer>
+
+</div>
+
+<script>
+/* ============================ I18N ============================
+   Matnlar shu yerda / Тексты здесь / Texts live here.
+   Keys match the data-i18n attributes above. The English strings are also
+   in the HTML (shown before JS runs) — change both if you edit "en".
+   ============================================================== */
+var I18N = {
+  en: {
+    skip: "Skip to content",
+    role: "<b>Backend developer</b> &mdash; 4 years on C# / .NET in banking and enterprise systems. Currently learning Java.",
+    pill_open: "<span class=\"dot\"></span>Open to offers",
+    meta: "Tashkent, Uzbekistan<br>Uzbek &middot; Russian C1 &middot; English B1",
+    nav_about: "About", nav_xp: "Experience", nav_skills: "Skills", nav_ai: "AI",
+    nav_projects: "Projects", nav_edu: "Education", nav_contact: "Contact",
+    ab_eyebrow: "About",
+    ab_lede: "Backend developer with four years of building enterprise systems in C# and .NET: bank credit monitoring, internal bank products, document-workflow automation platforms, government information systems and e-commerce.",
+    ab_body: "I design REST APIs, integrate with core banking and external registries, and build SSO authorisation and role-based access models. I use AI tools daily in development and ship LLM features into products, within banking security requirements. I value clean code, a clear architecture and solutions that keep working.",
+    ab_stack: "The stack is a tool, not an identity. My experience runs deepest in .NET, and I am moving into Java now &mdash; the architecture, the data modelling and the integration work carry over between platforms.",
+    now_tag: "Now",
+    now_body: "Middle .NET developer at BRB-TECH, Tashkent &mdash; credit monitoring and internal banking products.",
+    xp_eyebrow: "Experience",
+    lbl_stack: "Stack",
+    lbl_method: "Methods",
+    j1_place: "Tashkent", j1_dates: "Sep 2025 &mdash; present", j1_role: "Middle .NET developer",
+    j1_body: "<h4>Credit monitoring &mdash; credit portfolio control and the credit committee process</h4><ul><li>Backend modules in C# (ASP.NET Core): domain logic, REST API and background data-processing jobs.</li><li>Portfolio monitoring: overdue payments, collateral state and risk indicators, with automatic alerts to the responsible staff.</li><li>Credit committee workflow: an application moving through inspector &rarr; conclusion &rarr; decision, with routing and role-based rights.</li><li>Integration with core banking (ABS) and external registries: clients, loan contracts and payment schedules.</li></ul><h4>BRB Corex &mdash; workload analytics and task activity for staff</h4><ul><li>Server side in C# (ASP.NET Core): domain logic, REST API and background task synchronisation.</li><li>Jira Forge App integration: automatic task export and aggregated statistics published to the database.</li><li>SSO through Jira, giving every employee a single sign-on.</li><li>Optimised data processing and reporting for internal bank analytics.</li></ul><h4>RM Tracking &mdash; task management and client work for Relationship Managers</h4><ul><li>Designed and built a hierarchical role and permission model (Head / Senior / Junior).</li><li>Two authentication paths: SSO via Keycloak and classic login and password.</li><li>Database schema for tasks, clients and workload metrics.</li><li>Modules for the client base and for tracking task completion down the reporting line.</li></ul>",
+    j2_dates: "Oct 2024 &mdash; Sep 2025", j2_role: "C# / .NET developer",
+    j2_body: "<h4>ADAMS (adams.uz) &mdash; document workflow and business process automation</h4><ul><li>A platform for organisations in Uzbekistan: non-technical users configure access rights, document numbering and routing rules without a developer.</li><li>Built and maintained REST APIs on ASP.NET Core.</li><li>Implemented complex integrations with external systems and services.</li><li>Worked on the route and permission builder that users configure themselves.</li></ul>",
+    j3_place: "Tashkent", j3_dates: "Jan 2024 &mdash; Sep 2024", j3_role: "Web developer",
+    j3_body: "<h4>Chamber of Commerce and Industry of Uzbekistan</h4><ul><li>Digitised the Chamber document flow so entrepreneurs reach its services faster and more transparently.</li><li>Integration with internal government systems; report generation and visualisation; compliance with local regulations.</li></ul><h4>Ministry of Sport &mdash; national system for sports schools</h4><ul><li>Student records, teacher effectiveness and attendance control.</li><li>Reporting and visualisation of key metrics: attendance, performance, teacher activity.</li></ul>",
+    j4_dates: "Jul 2023 &mdash; Dec 2023", j4_role: "Backend developer",
+    j4_body: "<h4>EvoMarket API &mdash; e-commerce</h4><ul><li>Backend services and APIs for an online shopping platform.</li></ul><h4>AuraERP &mdash; business process control</h4><ul><li>Stock movement across warehouse and shops, and supplier work.</li><li>Built the warehouse module, integrated it with the rest of the system and automated the key storage and transfer operations.</li></ul>",
+    j5_place: "Tashkent", j5_dates: "Oct 2022 &mdash; May 2023", j5_role: "Sales manager",
+    j5_body: "<ul><li>Finding and winning clients, collecting and researching market information.</li><li>Meeting the sales plan, signing contracts and closing deals.</li></ul>",
+    sk_eyebrow: "Skills",
+    sk_lang: "Languages &amp; platforms", sk_data: "Data", sk_arch: "Architecture",
+    sk_sec: "Security", sk_infra: "Infrastructure", sk_integr: "Integrations", sk_proc: "Process", sk_next: "Learning now",
+    sk_data_v: "Entity Framework Core (Code First / Database First), RDBMS, SQL, database schema design",
+    sk_arch_v: "REST API, microservices, OOP, SOLID, reverse proxy",
+    sk_sec_v: "SSO (Keycloak, Jira), JWT, hierarchical role-based access models",
+    sk_integr_v: "Jira Forge API, external and government services",
+    ai_eyebrow: "AI in development",
+    ai_body: "<ul><li>I work with AI agents daily (Claude Code, GitHub Copilot): feature work, refactoring and debugging &mdash; AI is part of the workflow, not an occasional experiment.</li><li>I use AI for code review, for generating unit and integration tests, and for reading through legacy code.</li><li>I have shipped LLM features into a product: prompt design, handling model responses and quality control on the backend side.</li></ul>",
+    ai_note: "<b>Security and control:</b> the code sits in a self-hosted GitLab inside the bank perimeter and never leaves it; client and confidential data is never sent to a model; only approved corporate tools are used. AI-assisted code goes through mandatory review, branch protection and CI &mdash; a direct push to main is not possible.",
+    pr_eyebrow: "Pet projects on GitHub",
+    p1: "Task manager: add, edit and mark items as done.",
+    p2: "An HTML page that controls how question cards are shown and hidden.",
+    p3: "Management system for a training centre: groups, students and payments.",
+    p4: "A stripped-down social feed: posts, comments and likes.",
+    p5: "Written to get hands-on with the ASP.NET MVC pattern.",
+    ed_eyebrow: "Education and languages", ed_h: "Education", lg_h: "Languages",
+    ed_body: "Samarkand Law College &mdash; Jurisprudence, specialised secondary, 2018",
+    lg_body: "Uzbek &mdash; native<br>Russian &mdash; C1, advanced<br>English &mdash; B1, intermediate",
+    ct_eyebrow: "Contact",
+    ct_head: "Backend work and collaboration",
+    ct_body: "Open to .NET backend roles and project work. Email or Telegram gets the fastest reply.",
+    foot: "Tashkent, Uzbekistan"
+  },
+
+  uz: {
+    skip: "Mazmunga o&rsquo;tish",
+    role: "<b>Backend dasturchi</b> &mdash; bank va korporativ tizimlarda C# / .NET bo&rsquo;yicha 4 yillik tajriba. Hozir Java o&rsquo;rganyapman.",
+    pill_open: "<span class=\"dot\"></span>Takliflarga ochiq",
+    meta: "Toshkent, O&rsquo;zbekiston<br>O&rsquo;zbek &middot; Rus C1 &middot; Ingliz B1",
+    nav_about: "Qisqacha", nav_xp: "Tajriba", nav_skills: "Ko&rsquo;nikmalar", nav_ai: "AI",
+    nav_projects: "Loyihalar", nav_edu: "Ta&rsquo;lim", nav_contact: "Aloqa",
+    ab_eyebrow: "Qisqacha",
+    ab_lede: "C# (.NET) da korporativ tizimlar yaratish bo&rsquo;yicha 4 yillik tajribaga ega backend dasturchiman: bank kredit monitoringi, bankning ichki mahsulotlari, hujjat aylanishini avtomatlashtirish platformalari, davlat axborot tizimlari va e-commerce.",
+    ab_body: "REST API loyihalash, core banking va tashqi tizimlar bilan integratsiya, SSO avtorizatsiya va rolga asoslangan kirish modellari &mdash; asosiy yo&rsquo;nalishim. Kundalik ishda AI vositalaridan foydalanaman va mahsulotlarga LLM funksiyalarini joriy qilaman &mdash; bank xavfsizligi talablariga rioya qilgan holda. Toza kod, tushunarli arxitektura va uzoq muddat barqaror ishlaydigan yechimlarni qadrlayman.",
+    ab_stack: "Stek &mdash; vosita, shaxsiyat emas. Eng chuqur tajribam .NET&rsquo;da, hozir Java tomon o&rsquo;tyapman &mdash; arxitektura, ma&rsquo;lumotlarni modellashtirish va integratsiya tajribasi platformadan platformaga o&rsquo;tadi.",
+    now_tag: "Hozir",
+    now_body: "BRB-TECH (Toshkent) da Middle .NET dasturchi &mdash; kredit monitoringi va bankning ichki mahsulotlari.",
+    xp_eyebrow: "Ish tajribasi",
+    lbl_stack: "Stek",
+    lbl_method: "Metodologiya",
+    j1_place: "Toshkent", j1_dates: "2025-sen &mdash; hozirgacha", j1_role: "Middle .NET dasturchi",
+    j1_body: "<h4>Kredit monitoringi &mdash; kredit portfelini nazorat qilish va kredit qo&rsquo;mitasi jarayoni</h4><ul><li>C# (ASP.NET Core) da backend modullar: domen mantiq, REST API va fon rejimidagi ma&rsquo;lumotlarni qayta ishlash vazifalari.</li><li>Portfel monitoringi: muddati o&rsquo;tgan to&rsquo;lovlar, garov holati va risk indikatorlari, mas&rsquo;ul xodimlarga avtomatik xabarnoma bilan.</li><li>Kredit qo&rsquo;mitasi workflow&rsquo;i: ariza inspektor &rarr; xulosa &rarr; qaror bosqichlaridan o&rsquo;tadi, marshrutlash va rol huquqlari bilan.</li><li>Core banking (ABS) va tashqi reyestrlar bilan integratsiya: mijozlar, kredit shartnomalari va to&rsquo;lov grafiklari.</li></ul><h4>BRB Corex &mdash; xodimlar bandligi tahlili va vazifalar bo&rsquo;yicha faollik</h4><ul><li>C# (ASP.NET Core) da server qismi: domen mantiq, REST API va vazifalarni fon rejimida sinxronlash.</li><li>Jira Forge App integratsiyasi: vazifalarni avtomatik yuklash va jamlangan statistikani bazaga yozish.</li><li>Jira orqali SSO &mdash; barcha xodimlar uchun yagona kirish.</li><li>Bank ichki tahlili uchun ma&rsquo;lumotlarni qayta ishlash va hisobot tuzishni optimallashtirish.</li></ul><h4>RM Tracking &mdash; Relationship Manager&rsquo;lar uchun vazifa va mijoz boshqaruvi</h4><ul><li>Ierarxik rol va huquqlar modeli (Head / Senior / Junior) loyihalandi va amalga oshirildi.</li><li>Ikki xil autentifikatsiya: Keycloak orqali SSO va klassik login/parol.</li><li>Vazifalar, mijozlar va bandlik metrikalari uchun baza strukturasi.</li><li>Mijozlar bazasini yuritish va bo&rsquo;ysunish vertikali bo&rsquo;yicha vazifalar bajarilishini nazorat qilish modullari.</li></ul>",
+    j2_dates: "2024-okt &mdash; 2025-sen", j2_role: "C# / .NET dasturchi",
+    j2_body: "<h4>ADAMS (adams.uz) &mdash; hujjat aylanishi va biznes jarayonlarni avtomatlashtirish</h4><ul><li>O&rsquo;zbekiston tashkilotlari uchun platforma: texnik bo&rsquo;lmagan foydalanuvchilar kirish huquqlari, hujjat raqamlashi va marshrut qoidalarini dasturchisiz sozlaydi.</li><li>ASP.NET Core da REST API&rsquo;lar ishlab chiqildi va qo&rsquo;llab-quvvatlandi.</li><li>Tashqi tizim va servislar bilan murakkab integratsiyalar amalga oshirildi.</li><li>Foydalanuvchilarning o&rsquo;zi sozlaydigan marshrut va huquqlar konstruktorini rivojlantirishda qatnashdim.</li></ul>",
+    j3_place: "Toshkent", j3_dates: "2024-yan &mdash; 2024-sen", j3_role: "Web dasturchi",
+    j3_body: "<h4>O&rsquo;zbekiston Savdo-sanoat palatasi</h4><ul><li>Palata hujjat aylanishi raqamlashtirildi &mdash; tadbirkorlar xizmatlarga tezroq va shaffofroq kirish imkoniga ega bo&rsquo;ldi.</li><li>Ichki davlat tizimlari bilan integratsiya; hisobotlarni shakllantirish va vizualizatsiya; mahalliy normativ talablarga moslik.</li></ul><h4>Sport vazirligi &mdash; sport maktablarining milliy tizimi</h4><ul><li>O&rsquo;quvchilar hisobi, o&rsquo;qituvchilar samaradorligi va davomat nazorati.</li><li>Asosiy ko&rsquo;rsatkichlar bo&rsquo;yicha hisobot va vizualizatsiya: davomat, o&rsquo;zlashtirish, o&rsquo;qituvchilar faolligi.</li></ul>",
+    j4_dates: "2023-iyul &mdash; 2023-dek", j4_role: "Backend dasturchi",
+    j4_body: "<h4>EvoMarket API &mdash; elektron tijorat</h4><ul><li>Onlayn xaridlar platformasi uchun backend servislar va API.</li></ul><h4>AuraERP &mdash; biznes jarayonlarni nazorat qilish</h4><ul><li>Ombor va do&rsquo;konlardagi tovar aylanmasi, yetkazib beruvchilar bilan ishlash.</li><li>Ombor (Warehouse) modulini yozdim, tizimning qolgan qismlari bilan bog&rsquo;ladim va saqlash/ko&rsquo;chirish amallarini avtomatlashtirdim.</li></ul>",
+    j5_place: "Toshkent", j5_dates: "2022-okt &mdash; 2023-may", j5_role: "Sotuv menejeri",
+    j5_body: "<ul><li>Mijozlarni topish va jalb qilish, bozor haqida ma&rsquo;lumot yig&rsquo;ish va tahlil qilish.</li><li>Sotuv rejasini bajarish, shartnomalar tuzish va bitimlarni yakunlash.</li></ul>",
+    sk_eyebrow: "Ko&rsquo;nikmalar",
+    sk_lang: "Til va platforma", sk_data: "Ma&rsquo;lumotlar", sk_arch: "Arxitektura",
+    sk_sec: "Xavfsizlik", sk_infra: "Infratuzilma", sk_integr: "Integratsiyalar", sk_proc: "Jarayonlar", sk_next: "Hozir o&rsquo;rganyapman",
+    sk_data_v: "Entity Framework Core (Code First / Database First), RDBMS, SQL, baza sxemasini loyihalash",
+    sk_arch_v: "REST API, mikroservislar, OOP, SOLID prinsiplari, Reverse Proxy",
+    sk_sec_v: "SSO (Keycloak, Jira), JWT, ierarxik rol modellari",
+    sk_integr_v: "Jira Forge API, tashqi va davlat servislari",
+    ai_eyebrow: "Ishlab chiqishda AI",
+    ai_body: "<ul><li>Har kuni AI agentlar bilan ishlayman (Claude Code, GitHub Copilot): fichalar, refaktoring va debugging &mdash; AI ish jarayonimning bir qismi, vaqti-vaqti bilan ishlatiladigan vosita emas.</li><li>AI&rsquo;dan code review, unit va integratsion testlar generatsiyasi hamda legacy kodni tahlil qilishda foydalanaman.</li><li>Mahsulotga LLM funksiyasini joriy qildim: promptlarni loyihalash, model javoblarini qayta ishlash va backend tomonda natija sifatini nazorat qilish.</li></ul>",
+    ai_note: "<b>Xavfsizlik va nazorat:</b> kod bank perimetri ichidagi self-hosted GitLab&rsquo;da saqlanadi va undan tashqariga chiqmaydi; mijoz va maxfiy ma&rsquo;lumotlar modelga uzatilmaydi; faqat kelishilgan korporativ vositalar ishlatiladi. AI yordamida yozilgan kod majburiy review, branch protection va CI&rsquo;dan o&rsquo;tadi &mdash; main&rsquo;ga to&rsquo;g&rsquo;ridan-to&rsquo;g&rsquo;ri push qilish mumkin emas.",
+    pr_eyebrow: "GitHub&rsquo;dagi shaxsiy loyihalar",
+    p1: "Vazifalarni boshqarish ilovasi: qo&rsquo;shish, tahrirlash, bajarilganini belgilash.",
+    p2: "Savol kartalarining ko&rsquo;rinishini boshqaradigan HTML sahifa.",
+    p3: "O&rsquo;quv markazi uchun boshqaruv tizimi: guruhlar, o&rsquo;quvchilar va to&rsquo;lovlar.",
+    p4: "Ijtimoiy tarmoqning soddalashtirilgan nusxasi: post, izoh va like.",
+    p5: "ASP.NET MVC arxitekturasi bilan ishlash uchun yozilgan loyiha.",
+    ed_eyebrow: "Ta&rsquo;lim va tillar", ed_h: "Ta&rsquo;lim", lg_h: "Tillar",
+    ed_body: "Samarqand yuridik kolleji &mdash; Yurisprudensiya, o&rsquo;rta maxsus, 2018",
+    lg_body: "O&rsquo;zbek &mdash; ona tili<br>Rus &mdash; C1, yuqori<br>Ingliz &mdash; B1, o&rsquo;rta",
+    ct_eyebrow: "Aloqa",
+    ct_head: "Backend loyihalar va hamkorlik",
+    ct_body: ".NET backend yo&rsquo;nalishidagi ish va loyihalarni ko&rsquo;rib chiqaman. Eng tez javob &mdash; pochta yoki Telegram orqali.",
+    foot: "Toshkent, O&rsquo;zbekiston"
+  },
+
+  ru: {
+    skip: "Перейти к содержанию",
+    role: "<b>Backend-разработчик</b> &mdash; 4 года на C# / .NET в банковских и корпоративных системах. Сейчас осваиваю Java.",
+    pill_open: "<span class=\"dot\"></span>Открыта к предложениям",
+    meta: "Ташкент, Узбекистан<br>Узбекский &middot; Русский C1 &middot; Английский B1",
+    nav_about: "О себе", nav_xp: "Опыт", nav_skills: "Навыки", nav_ai: "AI",
+    nav_projects: "Проекты", nav_edu: "Образование", nav_contact: "Контакты",
+    ab_eyebrow: "О себе",
+    ab_lede: "Backend-разработчик с 4-летним опытом создания корпоративных систем на C# (.NET): банковский кредитный мониторинг, внутренние продукты банка, платформы автоматизации документооборота, государственные информационные системы и e-commerce.",
+    ab_body: "Специализируюсь на проектировании REST API, интеграциях с core banking и внешними системами, SSO-авторизации и ролевых моделях доступа. Активно использую AI-инструменты в ежедневной разработке и интегрирую LLM-функциональность в продукты — с соблюдением требований банковской безопасности. Ценю чистый код, понятную архитектуру и решения, которые работают стабильно и долго.",
+    ab_stack: "Стек &mdash; инструмент, а не идентичность. Глубже всего мой опыт в .NET, сейчас перехожу к Java &mdash; архитектура, моделирование данных и интеграции переносятся между платформами.",
+    now_tag: "Сейчас",
+    now_body: "Middle .NET разработчик в BRB-TECH, Ташкент &mdash; кредитный мониторинг и внутренние банковские продукты.",
+    xp_eyebrow: "Опыт работы",
+    lbl_stack: "Стек",
+    lbl_method: "Методологии",
+    j1_place: "Ташкент", j1_dates: "Сентябрь 2025 &mdash; наст. время", j1_role: "Middle .NET разработчик",
+    j1_body: "<h4>Кредитный мониторинг &mdash; контроль кредитного портфеля и процесс кредитного комитета</h4><ul><li>Backend-модули на C# (ASP.NET Core): доменная логика, REST API и фоновые задачи обработки данных.</li><li>Мониторинг портфеля: просроченные платежи, состояние залогов и риск-индикаторы с автоматическими оповещениями ответственных сотрудников.</li><li>Workflow кредитного комитета: прохождение заявки по этапам инспектор &rarr; заключение &rarr; решение с маршрутизацией и правами по ролям.</li><li>Интеграция с core banking (АБС) и внешними реестрами: клиенты, кредитные договоры и графики платежей.</li></ul><h4>BRB Corex &mdash; аналитика загрузки сотрудников и активности по задачам</h4><ul><li>Серверная часть на C# (ASP.NET Core): доменная логика, REST API и фоновая синхронизация данных о задачах.</li><li>Интеграция с Jira Forge App: автоматическая выгрузка задач и публикация агрегированной статистики в базу данных.</li><li>SSO-авторизация через Jira &mdash; единый вход для всех сотрудников.</li><li>Оптимизация обработки данных и построения отчётности для внутренней аналитики банка.</li></ul><h4>RM Tracking &mdash; task-менеджмент и работа с клиентами для Relationship Managers</h4><ul><li>Спроектирована и реализована иерархическая модель ролей и прав доступа (Head / Senior / Junior).</li><li>Два сценария аутентификации: SSO через Keycloak и классический вход по логину и паролю.</li><li>Структура базы данных для задач, клиентов и метрик загрузки.</li><li>Модули ведения клиентской базы и контроля выполнения задач по вертикали подчинения.</li></ul>",
+    j2_dates: "Октябрь 2024 &mdash; Сентябрь 2025", j2_role: "C# / .NET разработчик",
+    j2_body: "<h4>ADAMS (adams.uz) &mdash; автоматизация документооборота и бизнес-процессов</h4><ul><li>Платформа для организаций Узбекистана: нетехнические пользователи настраивают права доступа, нумерацию документов и правила маршрутизации без участия разработчиков.</li><li>Разработка и поддержка REST API на ASP.NET Core.</li><li>Реализация сложных интеграций с внешними системами и сервисами.</li><li>Развитие конструктора маршрутов и прав доступа, настраиваемого силами самих пользователей.</li></ul>",
+    j3_place: "Ташкент", j3_dates: "Январь 2024 &mdash; Сентябрь 2024", j3_role: "Web Developer",
+    j3_body: "<h4>Торгово-промышленная палата Узбекистана</h4><ul><li>Оцифровка документооборота Палаты &mdash; предприниматели получают доступ к услугам быстрее, проще и прозрачнее.</li><li>Интеграция с внутренними государственными системами; формирование и визуализация отчётов; соответствие локальным нормативным требованиям.</li></ul><h4>Министерство спорта &mdash; национальная система управления спортивными школами</h4><ul><li>Учёт учащихся, оценка эффективности преподавателей и контроль посещаемости.</li><li>Отчётность и визуализация по ключевым метрикам: посещаемость, успеваемость, активность преподавателей.</li></ul>",
+    j4_dates: "Июль 2023 &mdash; Декабрь 2023", j4_role: "Backend-разработчик",
+    j4_body: "<h4>EvoMarket API &mdash; электронная коммерция</h4><ul><li>Backend-сервисы и API для платформы онлайн-покупок.</li></ul><h4>AuraERP &mdash; контроль бизнес-процессов</h4><ul><li>Товарооборот на складе и в магазинах, работа с поставщиками.</li><li>Разработала модуль управления складом (Warehouse), интегрировала его с остальными частями системы и автоматизировала ключевые операции хранения и перемещения товаров.</li></ul>",
+    j5_place: "Ташкент", j5_dates: "Октябрь 2022 &mdash; Май 2023", j5_role: "Менеджер по продажам",
+    j5_body: "<ul><li>Поиск и привлечение клиентов, сбор и исследование информации о рынке.</li><li>Выполнение плана продаж, заключение договоров и проведение сделок.</li></ul>",
+    sk_eyebrow: "Навыки",
+    sk_lang: "Языки и платформы", sk_data: "Работа с данными", sk_arch: "Архитектура",
+    sk_sec: "Безопасность", sk_infra: "Инфраструктура", sk_integr: "Интеграции", sk_proc: "Процессы", sk_next: "Сейчас изучаю",
+    sk_data_v: "Entity Framework Core (Code First / Database First), RDBMS, SQL, проектирование схемы БД",
+    sk_arch_v: "REST API, микросервисы, ООП, принципы SOLID, Reverse Proxy",
+    sk_sec_v: "SSO (Keycloak, Jira), JWT, иерархические ролевые модели доступа",
+    sk_integr_v: "Jira Forge API, внешние и государственные сервисы",
+    ai_eyebrow: "AI в разработке",
+    ai_body: "<ul><li>Ежедневно работаю с AI-агентами (Claude Code, GitHub Copilot): разработка фич, рефакторинг и отладка &mdash; AI встроен в рабочий процесс, а не используется эпизодически.</li><li>Использую AI для code review и генерации unit- и интеграционных тестов, а также для анализа legacy-кода.</li><li>Интегрировала LLM-функциональность в продукт: проектирование промптов, обработка ответов модели и контроль качества результата на стороне backend.</li></ul>",
+    ai_note: "<b>Безопасность и контроль:</b> код размещён в self-hosted GitLab внутри банковского периметра и не покидает его; клиентские и конфиденциальные данные в модели не передаются; используются только согласованные корпоративные инструменты. Код, написанный с помощью AI, проходит обязательный review, branch protection и CI &mdash; прямой push в main исключён.",
+    pr_eyebrow: "Личные проекты на GitHub",
+    p1: "Менеджер задач: добавление, редактирование, отметка о выполнении.",
+    p2: "HTML-страница, которая управляет показом и скрытием карточек с вопросами.",
+    p3: "Система управления для учебного центра: группы, студенты и платежи.",
+    p4: "Упрощённая соцсеть: посты, комментарии и лайки.",
+    p5: "Написан, чтобы разобраться с паттерном ASP.NET MVC.",
+    ed_eyebrow: "Образование и языки", ed_h: "Образование", lg_h: "Языки",
+    ed_body: "Самаркандский юридический колледж &mdash; Юриспруденция, среднее специальное, 2018",
+    lg_body: "Узбекский &mdash; родной<br>Русский &mdash; C1, продвинутый<br>Английский &mdash; B1, средний",
+    ct_eyebrow: "Контакты",
+    ct_head: "Backend-проекты и сотрудничество",
+    ct_body: "Рассматриваю предложения по .NET backend и проектную работу. Быстрее всего отвечу на письмо или в Telegram.",
+    foot: "Ташкент, Узбекистан"
+  }
+};
+
+/* ---------- language ---------- */
+(function () {
+  var STORE_KEY = "mr-site-lang";
+  var nodes = document.querySelectorAll("[data-i18n]");
+  var buttons = document.querySelectorAll(".seg button");
+
+  function apply(lang) {
+    var dict = I18N[lang] || I18N.en;
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute("data-i18n");
+      if (dict[key]) { nodes[i].innerHTML = dict[key]; }
+    }
+    for (var j = 0; j < buttons.length; j++) {
+      buttons[j].setAttribute("aria-pressed", buttons[j].getAttribute("data-lang") === lang ? "true" : "false");
+    }
+    document.documentElement.setAttribute("lang", lang === "uz" ? "uz" : (lang === "ru" ? "ru" : "en"));
+  }
+
+  for (var k = 0; k < buttons.length; k++) {
+    buttons[k].addEventListener("click", function () {
+      var lang = this.getAttribute("data-lang");
+      apply(lang);
+      try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+    });
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORE_KEY); } catch (e) {}
+  apply(saved && I18N[saved] ? saved : "en");
+})();
+
+/* ---------- theme: auto / light / dark ---------- */
+(function () {
+  var STORE_KEY = "mr-site-theme";
+  var order = ["auto", "light", "dark"];
+  var btn = document.getElementById("theme-btn");
+  var label = document.getElementById("theme-label");
+  if (!btn || !label) { return; }
+
+  function apply(mode) {
+    if (mode === "auto") {
+      document.documentElement.removeAttribute("data-theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", mode);
+    }
+    label.textContent = mode.toUpperCase();
+    btn.setAttribute("aria-label", "Theme: " + mode);
+  }
+
+  var current = "auto";
+  try {
+    var saved = localStorage.getItem(STORE_KEY);
+    if (order.indexOf(saved) > -1) { current = saved; }
+  } catch (e) {}
+  apply(current);
+
+  btn.addEventListener("click", function () {
+    current = order[(order.indexOf(current) + 1) % order.length];
+    apply(current);
+    try { localStorage.setItem(STORE_KEY, current); } catch (e) {}
+  });
+})();
+
+/* ---------- section nav highlight ---------- */
+(function () {
+  var links = document.querySelectorAll(".toc a");
+  if (!links.length || !("IntersectionObserver" in window)) { return; }
+
+  var map = {};
+  for (var i = 0; i < links.length; i++) {
+    map[links[i].getAttribute("href").slice(1)] = links[i];
+  }
+  links[0].setAttribute("aria-current", "true");
+
+  var observer = new IntersectionObserver(function (entries) {
+    for (var i = 0; i < entries.length; i++) {
+      if (!entries[i].isIntersecting) { continue; }
+      for (var id in map) { map[id].removeAttribute("aria-current"); }
+      var active = map[entries[i].target.id];
+      if (active) { active.setAttribute("aria-current", "true"); }
+    }
+  }, { rootMargin: "-10% 0px -70% 0px", threshold: 0 });
+
+  var sections = document.querySelectorAll("main section[id]");
+  for (var j = 0; j < sections.length; j++) { observer.observe(sections[j]); }
+})();
+</script>
+</body>
+</html>
