@@ -60,7 +60,7 @@ Look for `<!-- EDIT -->` comments in `index.html`. What to change:
    job changes. The stack chips are plain `<span class="chip">` in the markup.
 5. **Figures** — the four `.stat` tiles. The numbers are hard-coded in the markup
    (they are language-neutral); their labels are the `st_*` keys.
-   Today: 4 years, 5 companies, 8 named systems, 3 languages. Keep them true.
+   Today: 3 years, 4 IT companies, 9 named systems, 3 languages. Keep them true.
 6. **Projects** — keys `p1`…`p8`, one `<a class="project">` per repo.
 7. **Metadata** — `og:*` tags and the JSON-LD `Person` block at the end of the
    file also carry the name, role and links. Update them when the contacts change.
