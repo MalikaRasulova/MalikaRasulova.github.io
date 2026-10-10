@@ -2,306 +2,601 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Malika Rasulova - backend developer, Tashkent. 4 years on C# / .NET in banking and enterprise systems, now moving into Java. EN / UZ / RU.">
+<meta name="author" content="Malika Rasulova">
 <title>Malika Rasulova</title>
+
+<meta name="theme-color" content="#f7f3eb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141110" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://malikarasulova.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Malika Rasulova">
+<meta property="og:description" content="Backend developer, Tashkent. 4 years on C# / .NET in banking and enterprise systems.">
+<meta property="og:url" content="https://malikarasulova.github.io/">
+<meta property="og:image" content="https://malikarasulova.github.io/portrait.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2232%22%20fill%3D%22%23c2552c%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2228%22%20fill%3D%22%23fff8f2%22%20text-anchor%3D%22middle%22%3EMR%3C%2Ftext%3E%3C%2Fsvg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..600&family=IBM+Plex+Mono:wght@400;500&family=Oswald:wght@500;700&family=Prata&display=swap">
 <style>
+  /* ----------------------------------------------------------------------
+     A warm editorial portfolio: cream paper, terracotta accent, one giant
+     cropped word of display type across the top, the portrait sitting on a
+     terracotta disc with a rotating caption ring, a scrolling stack strip,
+     and the record as numbered rounded cards - the current job inverted to
+     the dark block so it reads first.
+     Type: Oswald for the cropped word and the figures, Prata for names and
+     headings, Golos Text for reading, IBM Plex Mono for the small labels.
+     All four carry Cyrillic, so RU looks the same as EN and UZ.
+     -------------------------------------------------------------------- */
   :root{
-    --paper:#f3f3f0;
-    --surface:#ffffff;
-    --ink:#15181b;
-    --muted:#5e6670;
-    --faint:#8b929a;
-    --hair:#dcddd8;
-    --hair-strong:#c6c8c1;
-    --accent:#a8491a;
-    --sage:#6e7a63;
-    --on-accent:#fffaf6;
-    --ring:rgba(168,73,26,.18);
-    color-scheme: light;
+    --bg:#f7f3eb;
+    --bg-2:#f1e9dc;
+    --panel:#fffcf6;
+    --ink:#171310;
+    --muted:#6e6358;
+    --faint:#857a6c;
+    --line:#e4dbcb;
+    --line-2:#cfc3ae;
+    --accent:#c2552c;
+    --accent-2:#d98c2b;
+    --accent-soft:rgba(194,85,44,.10);
+    --on-accent:#fff8f2;
+    --dark:#191511;
+    --dark-2:#241e18;
+    --on-dark:#f5efe5;
+    --on-dark-mute:#b6a996;
+    --shadow:0 18px 46px rgba(40,26,14,.13);
+
+    --f-display:"Oswald","Arial Narrow",system-ui,sans-serif;
+    --f-serif:"Prata",Georgia,"Times New Roman",serif;
+    --f-ui:"Golos Text","Segoe UI",system-ui,-apple-system,sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+
+    --r-card:22px;
+    --r-lg:30px;
+
+    color-scheme:light;
   }
-  @media (prefers-color-scheme: dark){
+  @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
-      --paper:#0e1012;
-      --surface:#16191c;
-      --ink:#e9eae6;
-      --muted:#9ba2a8;
-      --faint:#767d84;
-      --hair:#252a2e;
-      --hair-strong:#363c41;
-      --accent:#e89250;
-      --sage:#9aa98b;
-      --on-accent:#17120c;
-      --ring:rgba(232,146,80,.22);
-      color-scheme: dark;
+      --bg:#141110;
+      --bg-2:#1b1714;
+      --panel:#1f1a16;
+      --ink:#f3ece1;
+      --muted:#a99c8d;
+      --faint:#8b8072;
+      --line:rgba(255,255,255,.10);
+      --line-2:rgba(255,255,255,.19);
+      --accent:#e8763f;
+      --accent-2:#f0a64a;
+      --accent-soft:rgba(232,118,63,.14);
+      --on-accent:#1a0e07;
+      --dark:#0d0b09;
+      --dark-2:#171310;
+      --on-dark:#f3ece1;
+      --on-dark-mute:#a99c8d;
+      --shadow:0 18px 46px rgba(0,0,0,.5);
+      color-scheme:dark;
     }
   }
   :root[data-theme="dark"]{
-    --paper:#0e1012;
-    --surface:#16191c;
-    --ink:#e9eae6;
-    --muted:#9ba2a8;
-    --faint:#767d84;
-    --hair:#252a2e;
-    --hair-strong:#363c41;
-    --accent:#e89250;
-    --sage:#9aa98b;
-    --on-accent:#17120c;
-    --ring:rgba(232,146,80,.22);
-    color-scheme: dark;
+    --bg:#141110;
+    --bg-2:#1b1714;
+    --panel:#1f1a16;
+    --ink:#f3ece1;
+    --muted:#a99c8d;
+    --faint:#8b8072;
+    --line:rgba(255,255,255,.10);
+    --line-2:rgba(255,255,255,.19);
+    --accent:#e8763f;
+    --accent-2:#f0a64a;
+    --accent-soft:rgba(232,118,63,.14);
+    --on-accent:#1a0e07;
+    --dark:#0d0b09;
+    --dark-2:#171310;
+    --on-dark:#f3ece1;
+    --on-dark-mute:#a99c8d;
+    --shadow:0 18px 46px rgba(0,0,0,.5);
+    color-scheme:dark;
   }
 
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
-    font-size:17px;
-    line-height:1.62;
-    -webkit-font-smoothing:antialiased;
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--f-ui);font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
   a{color:inherit}
-  .mono{font-family:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace}
-
-  .skip{
-    position:absolute;left:-9999px;top:0;z-index:9;
-    background:var(--ink);color:var(--paper);padding:10px 14px;font-size:14px;
-  }
-  .skip:focus{left:12px;top:12px}
-
-  .shell{
-    max-width:1140px;
-    margin:0 auto;
-    padding-inline:20px;
-    padding-block:0 80px;
-    display:grid;
-    grid-template-columns:minmax(0,286px) minmax(0,1fr);
-    gap:64px;
-  }
-
-  /* ================= rail ================= */
-  .rail{padding-block:60px 0}
-  .rail-inner{
-    position:sticky;top:calc(env(safe-area-inset-top, 0px) + 32px);
-    display:flex;flex-direction:column;gap:26px;
-    max-height:calc(100vh - 64px);overflow:auto;
-    scrollbar-width:none;
-  }
-  .rail-inner::-webkit-scrollbar{width:0;height:0}
-
-  .portrait-wrap{position:relative;width:124px;height:124px}
-  .portrait{
-    width:124px;height:124px;border-radius:50%;object-fit:cover;display:block;
-    filter:saturate(.92) contrast(1.02);
-  }
-  .portrait-wrap::after{
-    content:"";position:absolute;inset:-7px;border-radius:50%;
-    border:1px solid var(--hair-strong);
-  }
-  .portrait-wrap::before{
-    content:"";position:absolute;inset:-7px;border-radius:50%;
-    border:1px solid transparent;border-top-color:var(--accent);
-    transform:rotate(28deg);
-  }
-
-  h1{
-    font-family:"Bricolage Grotesque","Segoe UI",sans-serif;
-    font-weight:700;font-size:37px;line-height:1.0;margin:0;
-    letter-spacing:-.03em;
-  }
-  .role{margin:9px 0 0;color:var(--muted);font-size:15.5px;max-width:30ch}
-  .role b{color:var(--ink);font-weight:600}
-  .pill{
-    margin:14px 0 0;display:inline-flex;align-items:center;gap:8px;
-    font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--sage);border:1px solid var(--hair-strong);border-radius:999px;padding:5px 11px 5px 9px;
-  }
-  .pill .dot{width:6px;height:6px;border-radius:50%;background:var(--sage);flex:none}
-
-  .toc{display:flex;flex-direction:column;gap:1px;border-left:1px solid var(--hair)}
-  .toc a{
-    font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--faint);text-decoration:none;padding:5px 0 5px 14px;
-    border-left:2px solid transparent;margin-left:-1px;transition:color .15s ease,border-color .15s ease;
-  }
-  .toc a:hover{color:var(--ink)}
-  .toc a[aria-current="true"]{color:var(--accent);border-left-color:var(--accent)}
-
-  .links{display:flex;flex-direction:column;font-size:14px}
-  .links a{
-    display:flex;justify-content:space-between;gap:12px;align-items:baseline;
-    padding:9px 0;border-bottom:1px solid var(--hair);
-    text-decoration:none;color:var(--ink);
-  }
-  .links a:first-child{border-top:1px solid var(--hair)}
-  .links a .tag{color:var(--faint);font-size:11px;letter-spacing:.08em;text-transform:uppercase;flex:none;font-family:"JetBrains Mono",monospace}
-  .links a:hover,.links a:hover .tag{color:var(--accent)}
-
-  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-  .seg{display:flex;border:1px solid var(--hair-strong);background:var(--surface)}
-  .seg button,.theme-btn{
-    appearance:none;border:0;background:none;cursor:pointer;
-    font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.09em;
-    color:var(--faint);padding:6px 9px;line-height:1.2;
-  }
-  .seg button + button{border-left:1px solid var(--hair)}
-  .seg button:hover,.theme-btn:hover{color:var(--ink)}
-  .seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
-  .theme-btn{border:1px solid var(--hair-strong);background:var(--surface);display:flex;align-items:center;gap:7px}
-  .theme-btn .glyph{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
-
-  .meta{font-size:12.5px;color:var(--faint);line-height:1.8;margin:0;font-family:"JetBrains Mono",monospace}
-
-  /* ================= main ================= */
-  main{padding-block:60px 0;min-width:0}
-  section{padding-block:0 56px;scroll-margin-top:28px}
-  .eyebrow{
-    font-family:"JetBrains Mono",monospace;
-    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
-    margin:0 0 20px;padding-bottom:9px;border-bottom:1px solid var(--hair);
-    display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-  }
-  .eyebrow .count{color:var(--hair-strong)}
-  h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:20px;margin:0 0 12px;letter-spacing:-.015em}
-  p{margin:0 0 14px;max-width:64ch}
-  .lede{font-size:21px;line-height:1.5;max-width:54ch;letter-spacing:-.011em;margin-bottom:16px}
-  .lede b{font-weight:600}
-
-  .now{
-    background:var(--surface);border:1px solid var(--hair);
-    border-left:2px solid var(--accent);
-    padding:15px 20px;display:flex;flex-direction:column;gap:5px;margin-top:4px;
-  }
-  .now-tag{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-family:"JetBrains Mono",monospace}
-  .now-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none;box-shadow:0 0 0 4px var(--ring)}
-  .now p{margin:0;font-size:16px}
-
-  /* ---------- experience timeline ---------- */
-  .timeline{border-left:1px solid var(--hair);margin-left:4px}
-  .job{padding:0 0 30px 26px;position:relative}
-  .job:last-child{padding-bottom:0}
-  .job::before{
-    content:"";position:absolute;left:-4.5px;top:8px;
-    width:8px;height:8px;border-radius:50%;
-    background:var(--paper);border:1px solid var(--hair-strong);
-  }
-  .job.current::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px var(--ring)}
-  .job-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 16px}
-  .job-head h3{
-    font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18.5px;
-    margin:0;letter-spacing:-.018em;
-  }
-  .job-head h3 a{text-decoration:none;border-bottom:1px solid var(--hair-strong)}
-  .job-head h3 a:hover{color:var(--accent);border-bottom-color:var(--accent)}
-  .job-head .place{font-family:"Source Sans 3",sans-serif;font-weight:400;font-size:14.5px;color:var(--faint)}
-  .dates{font-size:11.5px;color:var(--faint);white-space:nowrap;font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",monospace;letter-spacing:.03em}
-  .job-role{margin:3px 0 12px;font-size:14.5px;color:var(--accent);font-weight:600;letter-spacing:.005em}
-  .job-body h4{
-    font-family:"Source Sans 3",sans-serif;font-size:15.5px;font-weight:600;
-    margin:16px 0 7px;color:var(--ink);
-  }
-  .job-body h4:first-child{margin-top:0}
-  .job-body ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px}
-  .job-body li{position:relative;padding-left:17px;font-size:15.5px;color:var(--muted);max-width:66ch}
-  .job-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--ring)}
-  .job-body a:hover{border-bottom-color:var(--accent)}
-  .job-body li::before{
-    content:"";position:absolute;left:0;top:.68em;
-    width:7px;height:1px;background:var(--hair-strong);
-  }
-  .job-stack{
-    margin:14px 0 0;font-size:12.5px;color:var(--muted);max-width:none;
-    display:flex;gap:9px;flex-wrap:wrap;align-items:baseline;
-  }
-  .job-stack b{
-    color:var(--faint);font-weight:400;letter-spacing:.1em;text-transform:uppercase;
-    font-size:10.5px;font-family:"JetBrains Mono",monospace;
-  }
-
-  /* ---------- skills ---------- */
-  .skills{display:flex;flex-direction:column}
-  .skill-row{
-    display:grid;grid-template-columns:minmax(0,172px) minmax(0,1fr);gap:3px 24px;
-    padding:12px 0;border-bottom:1px solid var(--hair);
-  }
-  .skill-row:first-child{border-top:1px solid var(--hair)}
-  .skill-key{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding-top:4px}
-  .skill-val{font-size:15.5px}
-
-  /* ---------- ai ---------- */
-  .ai-note{
-    margin:16px 0 0;font-size:14px;color:var(--muted);
-    border-left:2px solid var(--sage);padding-left:15px;max-width:66ch;
-  }
-  .ai-note b{color:var(--ink);font-weight:600}
-
-  /* ---------- repos ---------- */
-  .projects{display:flex;flex-direction:column}
-  .project{
-    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 18px;align-items:baseline;
-    padding:14px 0;border-top:1px solid var(--hair);text-decoration:none;
-  }
-  .project:last-child{border-bottom:1px solid var(--hair)}
-  .project--static{cursor:default}
-  .project--static .lang{white-space:normal}
-  .project-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:500;font-size:17px;letter-spacing:-.015em}
-  .project:hover .project-name{color:var(--accent)}
-  .project:hover .arrow{opacity:1;transform:translateX(2px)}
-  .arrow{color:var(--accent);opacity:0;transition:opacity .15s ease,transform .15s ease;font-size:14px;display:inline-block}
-  .project-desc{grid-column:1;color:var(--muted);font-size:15px;max-width:58ch;margin:0}
-  .project-side{grid-row:1 / span 2;grid-column:2;display:flex;align-items:center;gap:10px;white-space:nowrap}
-  .lang{font-size:11px;letter-spacing:.06em;padding:3px 8px;border:1px solid var(--hair);color:var(--faint);font-family:"JetBrains Mono",monospace}
-  .year{font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;font-family:"JetBrains Mono",monospace}
-
-  /* ---------- education / languages ---------- */
-  .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px 32px}
-  .duo h3{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 8px;font-weight:400}
-  .duo p{margin:0;font-size:15.5px}
-
-  /* ---------- contact ---------- */
-  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair)}
-  .contact-grid a{
-    background:var(--surface);padding:18px 20px;text-decoration:none;
-    display:flex;flex-direction:column;gap:3px;transition:background .15s ease;
-  }
-  .contact-grid a:hover{background:var(--paper)}
-  .contact-grid .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
-  .contact-grid .v{font-size:16px;color:var(--ink)}
-  .contact-grid a:hover .v{color:var(--accent)}
-
-  footer{
-    grid-column:1 / -1;border-top:1px solid var(--hair);padding-top:22px;
-    display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;
-    font-size:12px;color:var(--faint);font-family:"JetBrains Mono",monospace;letter-spacing:.04em;
-  }
-
+  img{max-width:100%}
+  ::selection{background:var(--accent);color:var(--on-accent)}
   :where(a,button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-  @media (max-width:900px){
-    .shell{grid-template-columns:minmax(0,1fr);gap:0}
-    .rail{padding-block:40px 0}
-    .rail-inner{position:static;max-height:none;overflow:visible;gap:22px}
-    .toc{display:none}
-    main{padding-block:36px 0}
-    h1{font-size:33px}
-    .lede{font-size:19px}
-    .project{grid-template-columns:minmax(0,1fr)}
-    .project-side{grid-row:auto;grid-column:1;padding-top:6px}
-    .skill-row{grid-template-columns:minmax(0,1fr)}
-    .job{padding-left:22px}
-  }
-  @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+  .wrap{max-width:1280px;margin:0 auto;padding-inline:24px}
 
+  .skip{
+    position:absolute;left:-9999px;top:0;z-index:99;
+    background:var(--accent);color:var(--on-accent);padding:12px 16px;
+    font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;border-radius:999px;
+  }
+  .skip:focus{left:14px;top:14px}
+
+  .mono-label{
+    font-family:var(--f-mono);font-size:10px;font-weight:500;
+    letter-spacing:.2em;text-transform:uppercase;
+  }
+
+  /* ===================== top strip + floating nav ===================== */
+  .strip{border-bottom:1px solid var(--line)}
+  .strip-in{
+    max-width:1280px;margin:0 auto;padding:11px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    color:var(--faint);
+  }
+  .strip .here{display:flex;align-items:center;gap:9px}
+  .strip .here .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--accent-2);flex:none;
+    box-shadow:0 0 0 0 var(--accent-soft);
+  }
+
+  .bar{position:sticky;top:0;z-index:40;padding:14px 24px 0}
+  .bar-in{
+    max-width:1280px;margin:0 auto;padding:9px 9px 9px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    background:var(--dark);border-radius:999px;box-shadow:var(--shadow);
+  }
+  .monogram{
+    display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--on-dark);
+    font-family:var(--f-serif);font-size:16px;letter-spacing:.01em;flex:none;
+  }
+  .monogram .badge-mini{
+    width:28px;height:28px;border-radius:50%;background:var(--accent);
+    display:grid;place-items:center;color:var(--on-accent);
+    font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.02em;
+  }
+  .toc{display:flex;gap:2px;min-width:0;overflow:auto;scrollbar-width:none}
+  .toc::-webkit-scrollbar{height:0}
+  .toc a{
+    font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--on-dark-mute);text-decoration:none;
+    padding:8px 12px;border-radius:999px;white-space:nowrap;
+    transition:color .18s ease,background .18s ease;
+  }
+  .toc a:hover{color:var(--on-dark);background:rgba(255,255,255,.07)}
+  .toc a[aria-current="true"]{color:var(--on-accent);background:var(--accent)}
+
+  .controls{display:flex;gap:7px;align-items:center;flex:none}
+  .seg{display:flex;border:1px solid rgba(255,255,255,.18);border-radius:999px;overflow:hidden}
+  .seg button,.theme-btn{
+    appearance:none;border:0;background:none;cursor:pointer;
+    font-family:var(--f-mono);font-size:9.5px;font-weight:500;letter-spacing:.12em;
+    color:var(--on-dark-mute);padding:7px 9px;line-height:1;
+    transition:color .18s ease,background .18s ease;
+  }
+  .seg button:hover,.theme-btn:hover{color:var(--on-dark)}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+  .theme-btn{
+    border:1px solid rgba(255,255,255,.18);border-radius:999px;
+    display:flex;align-items:center;gap:7px;
+  }
+  .theme-btn .glyph{
+    width:10px;height:10px;border-radius:50%;flex:none;border:1px solid rgba(255,255,255,.35);
+    background:linear-gradient(90deg,var(--on-dark) 0 50%,transparent 50% 100%);
+  }
+
+  /* ===================== hero ===================== */
+  .hero{position:relative;padding-bottom:clamp(30px,4vw,56px)}
+  .bleed{overflow:hidden;padding-top:clamp(18px,3vw,38px)}
+  .bigword{
+    font-family:var(--f-display);font-weight:700;
+    font-size:clamp(76px,22.5vw,330px);line-height:.78;letter-spacing:-.015em;
+    margin:0;white-space:nowrap;text-align:center;color:var(--ink);
+  }
+  .side-label{
+    position:absolute;top:120px;writing-mode:vertical-rl;
+    font-family:var(--f-mono);font-size:9.5px;font-weight:500;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--faint);
+    display:flex;align-items:center;gap:16px;
+  }
+  .side-label::before{content:"";width:1px;height:48px;background:var(--line-2)}
+  .side-label.l{left:8px}
+  .side-label.r{right:8px;transform:rotate(180deg)}
+
+  .hero-grid{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);
+    gap:40px;align-items:center;margin-top:clamp(-18px,-1.5vw,0px);
+  }
+  .hello{margin:0 0 14px;color:var(--faint)}
+  h1{
+    font-family:var(--f-serif);font-weight:400;
+    font-size:clamp(40px,7vw,96px);line-height:.98;letter-spacing:-.025em;
+    margin:0;
+  }
+  h1 span{display:block}
+  h1 .l2{color:var(--accent)}
+  .trade{
+    margin:18px 0 0;color:var(--accent);
+    font-family:var(--f-mono);font-size:11px;font-weight:500;
+    letter-spacing:.24em;text-transform:uppercase;
+  }
+  .role{
+    font-size:clamp(16px,1.7vw,18.5px);line-height:1.68;color:var(--muted);
+    max-width:46ch;margin:22px 0 0;
+  }
+  .role b{color:var(--ink);font-weight:600}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:11px;align-items:center;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;
+    background:var(--accent);color:var(--on-accent);
+    font-weight:600;font-size:14.5px;padding:14px 24px;border-radius:999px;
+    transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);filter:brightness(1.06)}
+  .btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+  .btn--ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn .ar{font-family:var(--f-mono);font-size:13px}
+
+  /* portrait on a disc, with a rotating caption ring */
+  .shot{position:relative;justify-self:center;width:min(100%,378px);aspect-ratio:1/1}
+  .disc{
+    position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);
+    width:92%;aspect-ratio:1/1;border-radius:50%;background:var(--accent);
+  }
+  .shot img{
+    position:relative;display:block;width:71%;margin:0 auto;
+    aspect-ratio:3/4;object-fit:cover;object-position:50% 18%;
+    border-radius:999px 999px 18px 18px;
+  }
+  .ring{
+    position:absolute;right:-6px;top:4px;width:112px;height:112px;
+    background:var(--bg);border-radius:50%;border:1px solid var(--line);
+    display:grid;place-items:center;
+  }
+  .ring svg{grid-area:1/1;width:100%;height:100%;animation:spin 20s linear infinite}
+  .ring text{
+    font-family:var(--f-mono);font-size:9.4px;font-weight:500;
+    letter-spacing:.18em;fill:var(--ink);text-transform:uppercase;
+  }
+  .ring .core{
+    grid-area:1/1;justify-self:center;align-self:center;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--accent);color:var(--on-accent);
+    display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;
+  }
+  .float-chip{
+    position:absolute;background:var(--panel);border:1px solid var(--line);
+    border-radius:999px;padding:7px 13px;box-shadow:var(--shadow);
+    font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.08em;
+    color:var(--ink);white-space:nowrap;
+  }
+  .fc-1{left:-4px;top:22%}
+  .fc-2{right:2%;bottom:24%}
+  .fc-3{left:6%;bottom:9%}
+
+  /* ===================== stack marquee ===================== */
+  .marquee{background:var(--dark);color:var(--on-dark);overflow:hidden;padding:17px 0}
+  .mq-track{display:flex;width:max-content;animation:slide 36s linear infinite}
+  .mq-track span{
+    font-family:var(--f-display);font-weight:500;font-size:19px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark);
+    padding:0 22px;white-space:nowrap;display:inline-flex;align-items:center;gap:22px;
+  }
+  .mq-track span::after{content:"\2726";color:var(--accent-2);font-size:13px}
+
+  /* ===================== figures ===================== */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;
+    padding-block:clamp(34px,5vw,60px);
+  }
+  .stat{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+    padding:24px;display:flex;flex-direction:column;gap:4px;min-width:0;
+  }
+  .stat .n{
+    font-family:var(--f-display);font-weight:700;
+    font-size:clamp(38px,5.2vw,62px);line-height:1;letter-spacing:-.01em;
+    font-variant-numeric:tabular-nums;color:var(--accent);
+  }
+  .stat .l{color:var(--faint)}
+
+  /* ===================== sections ===================== */
+  section{padding-block:clamp(44px,6vw,86px);scroll-margin-top:92px}
+  .sec-head{
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    margin-bottom:clamp(26px,3.4vw,44px);
+  }
+  .sec-num{
+    width:40px;height:40px;border-radius:50%;flex:none;
+    border:1px solid var(--accent);color:var(--accent);
+    display:grid;place-items:center;
+    font-family:var(--f-mono);font-size:11px;font-weight:500;
+    font-variant-numeric:tabular-nums;
+  }
+  h2{
+    font-family:var(--f-serif);font-weight:400;
+    font-size:clamp(27px,4.2vw,50px);line-height:1.04;letter-spacing:-.025em;
+    margin:0;text-wrap:balance;
+  }
+  .sec-rule{flex:1;height:1px;background:var(--line);min-width:20px}
+  .sec-meta{color:var(--faint);flex:none}
+
+  .lede{
+    font-family:var(--f-serif);font-weight:400;
+    font-size:clamp(21px,2.7vw,32px);line-height:1.34;letter-spacing:-.018em;
+    color:var(--ink);max-width:24ch;margin:0;
+  }
+  .about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
+  .p{font-size:16px;line-height:1.75;color:var(--muted);margin:0 0 16px;max-width:60ch}
+  .p:last-child{margin-bottom:0}
+
+  .now{
+    margin-top:36px;background:var(--dark);color:var(--on-dark);
+    border-radius:var(--r-lg);padding:clamp(22px,3vw,32px);
+    display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 26px;align-items:baseline;
+  }
+  .now-tag{margin:0;display:flex;align-items:center;gap:9px;flex:none;color:var(--accent-2)}
+  .now-tag .dot{
+    width:7px;height:7px;border-radius:50%;background:var(--accent-2);flex:none;
+    box-shadow:0 0 0 0 rgba(217,140,43,.3);
+  }
+  .now-body{
+    margin:0;font-family:var(--f-serif);font-size:clamp(17px,2vw,22px);
+    line-height:1.45;color:var(--on-dark);
+  }
+
+  /* ---------- experience ---------- */
+  .jobs{display:flex;flex-direction:column;gap:16px}
+  .job{
+    display:grid;grid-template-columns:52px minmax(0,164px) minmax(0,1fr);
+    gap:18px 28px;align-items:start;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:clamp(22px,2.8vw,34px);
+    transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+  }
+  .job:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--line-2)}
+  .job-no{
+    width:40px;height:40px;border-radius:50%;flex:none;
+    background:var(--bg-2);color:var(--faint);display:grid;place-items:center;
+    font-family:var(--f-mono);font-size:11px;font-weight:500;font-variant-numeric:tabular-nums;
+  }
+  .yr{
+    font-family:var(--f-display);font-weight:700;
+    font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.01em;
+    font-variant-numeric:tabular-nums;color:var(--ink);
+  }
+  .dates{
+    display:block;margin-top:8px;font-family:var(--f-mono);font-size:10px;
+    letter-spacing:.06em;line-height:1.7;color:var(--faint);font-variant-numeric:tabular-nums;
+  }
+  .job h3{
+    font-family:var(--f-serif);font-weight:400;font-size:clamp(20px,2.3vw,28px);
+    letter-spacing:-.018em;line-height:1.16;margin:0;
+  }
+  .job h3 a{text-decoration:none;border-bottom:1px solid var(--line-2);transition:color .18s,border-color .18s}
+  .job h3 a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  .place{font-family:var(--f-ui);font-size:14px;color:var(--faint);letter-spacing:0}
+  .job-role{margin:12px 0 20px;color:var(--accent)}
+
+  .job-body h4{
+    font-family:var(--f-ui);font-weight:600;font-size:15px;line-height:1.45;
+    color:var(--ink);margin:26px 0 12px;
+  }
+  .job-body h4:first-child{margin-top:0}
+  .job-body ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .job-body li{
+    position:relative;padding-left:21px;font-size:15px;line-height:1.64;
+    color:var(--muted);max-width:66ch;
+  }
+  .job-body li::before{
+    content:"";position:absolute;left:0;top:.56em;width:8px;height:8px;
+    border-radius:50%;border:1.5px solid var(--accent);opacity:.75;
+  }
+  .job-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+  .job-body a:hover{border-bottom-color:var(--accent)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:24px 0 0}
+  .chips b{font-family:var(--f-mono);font-weight:500;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--faint);margin-right:4px}
+  .chip{
+    font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted);
+    border:1px solid var(--line);background:var(--bg-2);
+    padding:6px 12px;border-radius:999px;white-space:nowrap;
+  }
+
+  /* the job happening right now takes the dark block */
+  .job.current{background:var(--dark);border-color:var(--dark);color:var(--on-dark)}
+  .job.current .job-no{background:var(--accent);color:var(--on-accent)}
+  .job.current .yr,.job.current h3,.job.current .job-body h4{color:var(--on-dark)}
+  .job.current .dates,.job.current .place{color:var(--on-dark-mute)}
+  .job.current .job-role{color:var(--accent-2)}
+  .job.current .job-body li{color:var(--on-dark-mute)}
+  .job.current .job-body li::before{border-color:var(--accent-2)}
+  .job.current .job-body a{color:var(--accent-2)}
+  .job.current h3 a{border-bottom-color:rgba(255,255,255,.25)}
+  .job.current h3 a:hover{color:var(--accent-2);border-bottom-color:var(--accent-2)}
+  .job.current .chip{background:var(--dark-2);border-color:rgba(255,255,255,.12);color:var(--on-dark-mute)}
+  .job.current .chips b{color:var(--on-dark-mute)}
+
+  /* ---------- skills ---------- */
+  .skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .skill{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+    padding:22px 24px;display:flex;flex-direction:column;gap:9px;min-width:0;
+  }
+  .skill-key{color:var(--faint)}
+  .skill-val{font-size:15.5px;line-height:1.55;color:var(--ink)}
+  .skill--next{background:var(--accent);border-color:var(--accent)}
+  .skill--next .skill-key{color:var(--on-accent);opacity:.75}
+  .skill--next .skill-val{color:var(--on-accent);font-weight:500}
+
+  /* ---------- ai ---------- */
+  .panel{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--r-lg);padding:clamp(22px,3vw,36px);
+  }
+  .note{
+    margin:16px 0 0;background:var(--dark);color:var(--on-dark-mute);
+    border-radius:var(--r-lg);padding:clamp(22px,3vw,32px);
+    font-size:15px;line-height:1.7;
+  }
+  .note b{display:block;margin-bottom:9px;color:var(--accent-2)}
+
+  /* ---------- projects ---------- */
+  .project{
+    display:block;text-decoration:none;position:relative;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:clamp(24px,3.2vw,40px);
+    transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+  }
+  .project:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent)}
+  .project-head{display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .project-name{
+    font-family:var(--f-serif);font-weight:400;font-size:clamp(21px,2.8vw,34px);
+    letter-spacing:-.02em;line-height:1.12;
+  }
+  .project:hover .project-name{color:var(--accent)}
+  .go{
+    width:48px;height:48px;border-radius:50%;flex:none;background:var(--accent);
+    color:var(--on-accent);display:grid;place-items:center;font-family:var(--f-mono);
+    font-size:16px;transition:transform .22s ease;
+  }
+  .project:hover .go{transform:rotate(45deg)}
+  .project-desc{margin:16px 0 0;font-size:15.5px;line-height:1.7;color:var(--muted);max-width:64ch}
+  .project-foot{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:20px}
+  .year{font-family:var(--f-mono);font-size:10.5px;color:var(--faint);
+    font-variant-numeric:tabular-nums;margin-left:auto}
+
+  /* ---------- education ---------- */
+  .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+  .duo > div{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--r-card);padding:26px;
+  }
+  .duo h3{margin:0 0 14px;color:var(--accent);font-family:var(--f-mono);font-weight:500;
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+  .duo p{margin:0;font-size:16px;line-height:1.75;color:var(--ink)}
+
+  /* ---------- contact ---------- */
+  .contact-card{
+    background:var(--dark);color:var(--on-dark);border-radius:clamp(26px,3.4vw,44px);
+    padding:clamp(28px,4.6vw,68px);position:relative;overflow:hidden;
+  }
+  .contact-card::after{
+    content:"";position:absolute;right:-90px;bottom:-130px;width:340px;height:340px;
+    border-radius:50%;background:var(--accent);opacity:.17;
+  }
+  .contact-head{
+    font-family:var(--f-serif);font-weight:400;position:relative;
+    font-size:clamp(28px,5.2vw,62px);line-height:1.04;letter-spacing:-.03em;
+    margin:0 0 18px;max-width:15ch;text-wrap:balance;
+  }
+  .contact-card .p{color:var(--on-dark-mute);position:relative;max-width:52ch}
+  .mail-btn{
+    position:relative;display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;
+    margin-top:30px;text-decoration:none;background:var(--accent);color:var(--on-accent);
+    border-radius:999px;padding:16px 18px 16px 28px;
+    transition:transform .18s ease,filter .18s ease;
+  }
+  .mail-btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+  .mail-btn .v{font-family:var(--f-serif);font-size:clamp(17px,2.4vw,27px);letter-spacing:-.01em;overflow-wrap:anywhere}
+  .mail-btn .go{background:var(--on-accent);color:var(--accent);width:44px;height:44px}
+  .mail-btn:hover .go{transform:rotate(45deg)}
+
+  .contact-grid{
+    position:relative;display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px;
+  }
+  .contact-grid a{
+    background:var(--dark-2);border:1px solid rgba(255,255,255,.09);
+    border-radius:var(--r-card);padding:20px 22px;text-decoration:none;min-width:0;
+    display:flex;flex-direction:column;gap:6px;transition:border-color .2s ease,transform .2s ease;
+  }
+  .contact-grid a:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .contact-grid .k{color:var(--on-dark-mute)}
+  .contact-grid .v{font-size:16px;color:var(--on-dark);overflow-wrap:break-word}
+  .contact-grid a:hover .v{color:var(--accent-2)}
+
+  .contact-meta{
+    position:relative;margin:28px 0 0;color:var(--on-dark-mute);line-height:2.2;
+  }
+
+  footer{
+    padding:26px 0 calc(env(safe-area-inset-bottom,0px) + 40px);
+    display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between;
+    color:var(--faint);
+  }
+
+  /* ===================== motion ===================== */
+  @keyframes slide{to{transform:translateX(-50%)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes breathe{0%,100%{box-shadow:0 0 0 0 var(--accent-soft)}50%{box-shadow:0 0 0 7px var(--accent-soft)}}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .strip .here .dot,.now-tag .dot{animation:breathe 2.8s ease-in-out infinite}
+  .bigword{animation:rise .6s cubic-bezier(.2,.7,.3,1) both}
+  .hero-grid > div:first-child{animation:rise .6s cubic-bezier(.2,.7,.3,1) .1s both}
+  .shot{animation:rise .7s cubic-bezier(.2,.7,.3,1) .18s both}
+
+  /* scroll reveal: armed only once JS runs, so no-JS keeps everything visible */
+  [data-reveal] .reveal{opacity:0;transform:translateY(22px)}
+  [data-reveal] .reveal.in{opacity:1;transform:none;transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.3,1)}
+
+  /* ===================== responsive ===================== */
+  @media (max-width:1180px){
+    .side-label{display:none}
+  }
+  @media (max-width:1040px){
+    .toc{display:none}
+    .hero-grid{grid-template-columns:minmax(0,1fr);gap:34px;margin-top:10px}
+    .shot{justify-self:center;width:min(100%,380px)}
+    .about-grid{grid-template-columns:minmax(0,1fr);gap:26px}
+    .lede{max-width:34ch}
+    .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .contact-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  }
+  @media (max-width:760px){
+    .job{grid-template-columns:40px minmax(0,1fr);gap:14px 18px}
+    .job > .yr-cell,.job > .job-main{grid-column:2}
+    .dates{display:inline-block;margin:0 0 0 14px}
+    .skills{grid-template-columns:minmax(0,1fr)}
+    .now{grid-template-columns:minmax(0,1fr);gap:12px}
+    .ring{width:92px;height:92px;right:0}
+  }
+  @media (max-width:520px){
+    .wrap,.strip-in{padding-inline:18px}
+    .bar{padding:10px 14px 0}
+    .bar-in{padding:7px 7px 7px 14px}
+    .strip-in .trade-strip{display:none}
+    .float-chip{display:none}
+    .contact-grid{grid-template-columns:minmax(0,1fr)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+    [data-reveal] .reveal{opacity:1;transform:none}
+  }
+
+  /* ===================== print ===================== */
   @media print{
-    .toc,.controls,.skip{display:none}
-    .shell{display:block;max-width:none;padding:0}
-    .rail-inner{position:static;max-height:none}
-    body{background:#fff;color:#000;font-size:11pt}
-    .job,section{page-break-inside:avoid}
+    .bar,.marquee,.skip,.hero-actions,.shot,.side-label,.strip{display:none}
+    body{background:#fff;color:#000;font-size:10.5pt}
+    .wrap{max-width:none;padding:0}
+    .bigword{font-size:46pt;color:#000}
+    h1{font-size:26pt}
+    .job,.panel,.skill,.duo > div,.project,.stat{
+      border:1px solid #ccc;background:#fff;box-shadow:none;page-break-inside:avoid;
+    }
+    .job.current,.now,.note,.contact-card{background:#f4f4f4;color:#000;border:1px solid #ccc}
+    .job.current .yr,.job.current h3,.job.current .job-body h4,
+    .job.current .job-body li,.now-body,.note,.contact-head{color:#000}
+    .contact-card::after{display:none}
+    .mail-btn,.contact-grid a{background:#fff;color:#000;border:1px solid #ccc}
+    .mail-btn .v,.contact-grid .v{color:#000}
+    section{padding-block:12pt}
+    footer{padding-bottom:0}
   }
 </style>
 </head>
@@ -309,86 +604,142 @@
 
 <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-<div class="shell">
+<!-- ===================== top strip ===================== -->
+<div class="strip">
+  <div class="strip-in">
+    <span class="mono-label trade-strip">Backend developer &middot; C# / .NET</span>
+    <span class="mono-label here" data-i18n="pill_open"><span class="dot"></span>Open to offers</span>
+  </div>
+</div>
 
-  <aside class="rail">
-    <div class="rail-inner">
+<!-- ===================== floating nav ===================== -->
+<div class="bar">
+  <div class="bar-in">
+    <!-- EDIT: monogram -->
+    <a class="monogram" href="#main"><span class="badge-mini">MR</span>Malika</a>
 
-      <div>
-        <div class="portrait-wrap">
-          <img class="portrait" src="portrait.jpg" alt="Malika Rasulova" width="124" height="124">
-        </div>
-        <h1>Malika<br>Rasulova</h1>
-        <p class="role" data-i18n="role"><b>Backend developer</b> &mdash; 4 years on C# / .NET in banking and enterprise systems. Currently learning Java.</p>
-        <p class="pill" data-i18n="pill_open"><span class="dot"></span>Open to offers</p>
+    <nav class="toc" aria-label="Sections">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#experience" data-i18n="nav_xp">Experience</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#ai" data-i18n="nav_ai">AI</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#education" data-i18n="nav_edu">Education</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" id="btn-lang-en" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" id="btn-lang-uz" data-lang="uz" aria-pressed="false">UZ</button>
+        <button type="button" id="btn-lang-ru" data-lang="ru" aria-pressed="false">RU</button>
       </div>
-
-      <nav class="toc" aria-label="Sections">
-        <a href="#about" data-i18n="nav_about">About</a>
-        <a href="#experience" data-i18n="nav_xp">Experience</a>
-        <a href="#skills" data-i18n="nav_skills">Skills</a>
-        <a href="#ai" data-i18n="nav_ai">AI</a>
-        <a href="#projects" data-i18n="nav_projects">Projects</a>
-        <a href="#education" data-i18n="nav_edu">Education</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
-      </nav>
-
-      <nav class="links">
-        <a href="mailto:mrxonly616@gmail.com">
-          <span>mrxonly616@gmail.com</span><span class="tag">Email</span>
-        </a>
-        <a href="https://t.me/malika53" target="_blank" rel="noopener">
-          <span>@malika53</span><span class="tag">Telegram &#8599;</span>
-        </a>
-        <a href="https://www.linkedin.com/in/malika53" target="_blank" rel="noopener">
-          <span>in/malika53</span><span class="tag">LinkedIn &#8599;</span>
-        </a>
-        <a href="https://github.com/MalikaRasulova" target="_blank" rel="noopener">
-          <span>MalikaRasulova</span><span class="tag">GitHub &#8599;</span>
-        </a>
-      </nav>
-
-      <div class="controls">
-        <div class="seg" role="group" aria-label="Language">
-          <button type="button" id="btn-lang-en" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" id="btn-lang-uz" data-lang="uz" aria-pressed="false">UZ</button>
-          <button type="button" id="btn-lang-ru" data-lang="ru" aria-pressed="false">RU</button>
-        </div>
-        <button type="button" class="theme-btn" id="theme-btn">
-          <span class="glyph" aria-hidden="true"></span><span id="theme-label">AUTO</span>
-        </button>
-      </div>
-
-      <p class="meta" data-i18n="meta">Tashkent, Uzbekistan<br>Uzbek &middot; Russian C1 &middot; English B1</p>
-
+      <button type="button" class="theme-btn" id="theme-btn">
+        <span class="glyph" aria-hidden="true"></span><span id="theme-label">AUTO</span>
+      </button>
     </div>
-  </aside>
+  </div>
+</div>
 
-  <main id="main">
+<!-- ===================== hero ===================== -->
+<header class="hero">
+  <span class="side-label l" aria-hidden="true">C# &middot; .NET &middot; ASP.NET Core</span>
+  <span class="side-label r" aria-hidden="true">Tashkent &middot; since 2022</span>
 
-    <section id="about">
-      <p class="eyebrow"><span data-i18n="ab_eyebrow">About</span></p>
-      <p class="lede" data-i18n="ab_lede">Backend developer with four years of building enterprise systems in C# and .NET: bank credit monitoring, internal bank products, document-workflow automation platforms, government information systems and e-commerce.</p>
-      <p data-i18n="ab_body">I design REST APIs, integrate with core banking and external registries, and build SSO authorisation and role-based access models. I use AI tools daily in development and ship LLM features into products, within banking security requirements. I value clean code, a clear architecture and solutions that keep working.</p>
-      <p data-i18n="ab_stack">The stack is a tool, not an identity. My experience runs deepest in .NET, and I am moving into Java now &mdash; the architecture, the data modelling and the integration work carry over between platforms.</p>
+  <div class="bleed"><p class="bigword">BACKEND</p></div>
 
-      <div class="now">
-        <div class="now-tag"><span class="dot"></span><span data-i18n="now_tag">Now</span></div>
-        <p data-i18n="now_body">Middle .NET developer at BRB-TECH, Tashkent &mdash; credit monitoring and internal banking products.</p>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="hello mono-label" data-i18n="foot">Tashkent, Uzbekistan</p>
+        <!-- EDIT: name -->
+        <h1><span class="l1">Malika</span><span class="l2">Rasulova</span></h1>
+        <p class="trade">C# &middot; .NET &middot; ASP.NET Core &middot; SQL</p>
+        <p class="role" data-i18n="role"><b>Backend developer</b> &mdash; 4 years on C# / .NET in banking and enterprise systems. Currently learning Java.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact"><span data-i18n="nav_contact">Contact</span><span class="ar" aria-hidden="true">&#8595;</span></a>
+          <a class="btn btn--ghost" href="https://github.com/MalikaRasulova" target="_blank" rel="noopener">GitHub<span class="ar" aria-hidden="true">&#8599;</span></a>
+        </div>
       </div>
-    </section>
 
-    <section id="experience">
-      <p class="eyebrow"><span data-i18n="xp_eyebrow">Experience</span><span class="count">2022 &mdash; 2026</span></p>
+      <div class="shot">
+        <span class="disc" aria-hidden="true"></span>
+        <img src="portrait.jpg" alt="Malika Rasulova" width="430" height="573">
+        <div class="ring" aria-hidden="true">
+          <svg viewBox="0 0 120 120" role="presentation">
+            <defs>
+              <path id="ringPath" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"></path>
+            </defs>
+            <text><textPath href="#ringPath">BACKEND &middot; .NET &middot; TASHKENT &middot; BANKING &middot; </textPath></text>
+          </svg>
+          <span class="core">&#8595;</span>
+        </div>
+        <span class="float-chip fc-1">ASP.NET Core</span>
+        <span class="float-chip fc-2">Keycloak SSO</span>
+        <span class="float-chip fc-3">PostgreSQL</span>
+      </div>
+    </div>
+  </div>
+</header>
 
-      <div class="timeline">
+<!-- ===================== stack marquee ===================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span>C#</span><span>.NET</span><span>ASP.NET Core</span><span>EF Core</span><span>REST API</span><span>Keycloak</span><span>Docker</span><span>PostgreSQL</span><span>CI / CD</span><span>Java</span>
+    <span>C#</span><span>.NET</span><span>ASP.NET Core</span><span>EF Core</span><span>REST API</span><span>Keycloak</span><span>Docker</span><span>PostgreSQL</span><span>CI / CD</span><span>Java</span>
+  </div>
+</div>
 
-        <article class="job current">
-          <div class="job-head">
-            <h3><a href="https://brb-tech.uz/ru" target="_blank" rel="noopener">BRB-TECH</a> <span class="place">&mdash; <span data-i18n="j1_place">Tashkent</span></span></h3>
-            <span class="dates" data-i18n="j1_dates">Sep 2025 &mdash; present</span>
-          </div>
-          <p class="job-role" data-i18n="j1_role">Middle .NET developer</p>
+<!-- ===================== figures ===================== -->
+<div class="wrap">
+  <div class="stats reveal">
+    <div class="stat"><span class="n">04</span><span class="l mono-label" data-i18n="st_years">years of experience</span></div>
+    <div class="stat"><span class="n">05</span><span class="l mono-label" data-i18n="st_companies">companies</span></div>
+    <div class="stat"><span class="n">08</span><span class="l mono-label" data-i18n="st_systems">systems</span></div>
+    <div class="stat"><span class="n">03</span><span class="l mono-label" data-i18n="st_langs">languages</span></div>
+  </div>
+</div>
+
+<main id="main" class="wrap">
+
+  <section id="about">
+    <div class="sec-head reveal">
+      <span class="sec-num">01</span>
+      <h2 data-i18n="ab_eyebrow">About</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+    <div class="about-grid reveal">
+      <p class="lede" data-i18n="ab_lede">Backend developer with four years of building enterprise systems in C# and .NET: bank credit monitoring, internal bank products, document-workflow automation platforms, government information systems and e-commerce.</p>
+      <div>
+        <p class="p" data-i18n="ab_body">I design REST APIs, integrate with core banking and external registries, and build SSO authorisation and role-based access models. I use AI tools daily in development and ship LLM features into products, within banking security requirements. I value clean code, a clear architecture and solutions that keep working.</p>
+        <p class="p" data-i18n="ab_stack">The stack is a tool, not an identity. My experience runs deepest in .NET, and I am moving into Java now &mdash; the architecture, the data modelling and the integration work carry over between platforms.</p>
+      </div>
+    </div>
+    <div class="now reveal">
+      <p class="now-tag mono-label"><span class="dot" aria-hidden="true"></span><span data-i18n="now_tag">Now</span></p>
+      <p class="now-body" data-i18n="now_body">Middle .NET developer at BRB-TECH, Tashkent &mdash; credit monitoring and internal banking products.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 data-i18n="xp_eyebrow">Experience</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-meta mono-label">2022 &mdash; 2026</span>
+    </div>
+
+    <div class="jobs">
+
+      <article class="job current reveal">
+        <span class="job-no">01</span>
+        <div class="yr-cell">
+          <div class="yr">2025</div>
+          <span class="dates" data-i18n="j1_dates">Sep 2025 &mdash; present</span>
+        </div>
+        <div class="job-main">
+          <h3><a href="https://brb-tech.uz/ru" target="_blank" rel="noopener">BRB-TECH</a> <span class="place">&mdash; <span data-i18n="j1_place">Tashkent</span></span></h3>
+          <p class="job-role mono-label" data-i18n="j1_role">Middle .NET developer</p>
           <div class="job-body" data-i18n="j1_body">
             <h4>Credit monitoring &mdash; credit portfolio control and the credit committee process</h4>
             <ul>
@@ -412,15 +763,19 @@
               <li>Modules for the client base and for tracking task completion down the reporting line.</li>
             </ul>
           </div>
-          <p class="job-stack"><b data-i18n="lbl_stack">Stack</b> <span>C#, .NET, ASP.NET Core, Entity Framework Core, REST API, Keycloak (SSO), Jira Forge API, Docker, SQL</span></p>
-        </article>
+          <p class="chips"><b data-i18n="lbl_stack">Stack</b><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">EF Core</span><span class="chip">REST API</span><span class="chip">Keycloak SSO</span><span class="chip">Jira Forge API</span><span class="chip">Docker</span><span class="chip">SQL</span></p>
+        </div>
+      </article>
 
-        <article class="job">
-          <div class="job-head">
-            <h3><a href="https://ssd.uz/" target="_blank" rel="noopener">Smart Software Development</a> <span class="place">&mdash; ssd.uz</span></h3>
-            <span class="dates" data-i18n="j2_dates">Oct 2024 &mdash; Sep 2025</span>
-          </div>
-          <p class="job-role" data-i18n="j2_role">C# / .NET developer</p>
+      <article class="job reveal">
+        <span class="job-no">02</span>
+        <div class="yr-cell">
+          <div class="yr">2024</div>
+          <span class="dates" data-i18n="j2_dates">Oct 2024 &mdash; Sep 2025</span>
+        </div>
+        <div class="job-main">
+          <h3><a href="https://ssd.uz/" target="_blank" rel="noopener">Smart Software Development</a> <span class="place">&mdash; ssd.uz</span></h3>
+          <p class="job-role mono-label" data-i18n="j2_role">C# / .NET developer</p>
           <div class="job-body" data-i18n="j2_body">
             <h4>ADAMS (<a href="https://adams.uz/" target="_blank" rel="noopener">adams.uz</a>) &mdash; document workflow and business process automation</h4>
             <ul>
@@ -430,15 +785,19 @@
               <li>Worked on the route and permission builder that users configure themselves.</li>
             </ul>
           </div>
-          <p class="job-stack"><b data-i18n="lbl_stack">Stack</b> <span>C#, ASP.NET Core, Entity Framework Core, REST API, RDBMS</span></p>
-        </article>
+          <p class="chips"><b data-i18n="lbl_stack">Stack</b><span class="chip">C#</span><span class="chip">ASP.NET Core</span><span class="chip">EF Core</span><span class="chip">REST API</span><span class="chip">RDBMS</span></p>
+        </div>
+      </article>
 
-        <article class="job">
-          <div class="job-head">
-            <h3><a href="https://webase.uz/" target="_blank" rel="noopener">WEBASE</a> <span class="place">&mdash; <span data-i18n="j3_place">Tashkent</span></span></h3>
-            <span class="dates" data-i18n="j3_dates">Jan 2024 &mdash; Sep 2024</span>
-          </div>
-          <p class="job-role" data-i18n="j3_role">Web developer</p>
+      <article class="job reveal">
+        <span class="job-no">03</span>
+        <div class="yr-cell">
+          <div class="yr">2024</div>
+          <span class="dates" data-i18n="j3_dates">Jan 2024 &mdash; Sep 2024</span>
+        </div>
+        <div class="job-main">
+          <h3><a href="https://webase.uz/" target="_blank" rel="noopener">WEBASE</a> <span class="place">&mdash; <span data-i18n="j3_place">Tashkent</span></span></h3>
+          <p class="job-role mono-label" data-i18n="j3_role">Web developer</p>
           <div class="job-body" data-i18n="j3_body">
             <h4>Chamber of Commerce and Industry of Uzbekistan</h4>
             <ul>
@@ -451,15 +810,19 @@
               <li>Reporting and visualisation of key metrics: attendance, performance, teacher activity.</li>
             </ul>
           </div>
-          <p class="job-stack"><b data-i18n="lbl_method">Methods</b> <span>Scrum, Waterfall</span></p>
-        </article>
+          <p class="chips"><b data-i18n="lbl_method">Methods</b><span class="chip">Scrum</span><span class="chip">Waterfall</span></p>
+        </div>
+      </article>
 
-        <article class="job">
-          <div class="job-head">
-            <h3>Newline Group <span class="place">&mdash; NL-group</span></h3>
-            <span class="dates" data-i18n="j4_dates">Jul 2023 &mdash; Dec 2023</span>
-          </div>
-          <p class="job-role" data-i18n="j4_role">Backend developer</p>
+      <article class="job reveal">
+        <span class="job-no">04</span>
+        <div class="yr-cell">
+          <div class="yr">2023</div>
+          <span class="dates" data-i18n="j4_dates">Jul 2023 &mdash; Dec 2023</span>
+        </div>
+        <div class="job-main">
+          <h3>Newline Group <span class="place">&mdash; NL-group</span></h3>
+          <p class="job-role mono-label" data-i18n="j4_role">Backend developer</p>
           <div class="job-body" data-i18n="j4_body">
             <h4>EvoMarket API &mdash; e-commerce</h4>
             <ul>
@@ -471,42 +834,56 @@
               <li>Built the warehouse module, integrated it with the rest of the system and automated the key storage and transfer operations.</li>
             </ul>
           </div>
-          <p class="job-stack"><b data-i18n="lbl_stack">Stack</b> <span>Microservices, ASP.NET, JWT, Docker, GitHub Actions, CI, Deployment, SSH</span></p>
-        </article>
+          <p class="chips"><b data-i18n="lbl_stack">Stack</b><span class="chip">Microservices</span><span class="chip">ASP.NET</span><span class="chip">JWT</span><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">CI</span><span class="chip">SSH</span></p>
+        </div>
+      </article>
 
-        <article class="job">
-          <div class="job-head">
-            <h3>PDP Academy <span class="place">&mdash; <span data-i18n="j5_place">Tashkent</span></span></h3>
-            <span class="dates" data-i18n="j5_dates">Oct 2022 &mdash; May 2023</span>
-          </div>
-          <p class="job-role" data-i18n="j5_role">Sales manager</p>
+      <article class="job reveal">
+        <span class="job-no">05</span>
+        <div class="yr-cell">
+          <div class="yr">2022</div>
+          <span class="dates" data-i18n="j5_dates">Oct 2022 &mdash; May 2023</span>
+        </div>
+        <div class="job-main">
+          <h3>PDP Academy <span class="place">&mdash; <span data-i18n="j5_place">Tashkent</span></span></h3>
+          <p class="job-role mono-label" data-i18n="j5_role">Sales manager</p>
           <div class="job-body" data-i18n="j5_body">
             <ul>
               <li>Finding and winning clients, collecting and researching market information.</li>
               <li>Meeting the sales plan, signing contracts and closing deals.</li>
             </ul>
           </div>
-        </article>
+        </div>
+      </article>
 
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="skills">
-      <p class="eyebrow"><span data-i18n="sk_eyebrow">Skills</span></p>
-      <div class="skills">
-        <div class="skill-row"><div class="skill-key" data-i18n="sk_lang">Languages &amp; platforms</div><div class="skill-val">C#, .NET, ASP.NET Core</div></div>
-        <div class="skill-row"><div class="skill-key" data-i18n="sk_data">Data</div><div class="skill-val" data-i18n="sk_data_v">Entity Framework Core (Code First / Database First), RDBMS, SQL, database schema design</div></div>
-        <div class="skill-row"><div class="skill-key" data-i18n="sk_arch">Architecture</div><div class="skill-val" data-i18n="sk_arch_v">REST API, microservices, OOP, SOLID, reverse proxy</div></div>
-        <div class="skill-row"><div class="skill-key" data-i18n="sk_sec">Security</div><div class="skill-val" data-i18n="sk_sec_v">SSO (Keycloak, Jira), JWT, hierarchical role-based access models</div></div>
-        <div class="skill-row"><div class="skill-key" data-i18n="sk_infra">Infrastructure</div><div class="skill-val">Docker, GitHub Actions, CI, Deployment, SSH</div></div>
-        <div class="skill-row"><div class="skill-key" data-i18n="sk_integr">Integrations</div><div class="skill-val" data-i18n="sk_integr_v">Jira Forge API, external and government services</div></div>
-        <div class="skill-row"><div class="skill-key" data-i18n="sk_proc">Process</div><div class="skill-val">Agile, Scrum, Waterfall</div></div>
-        <div class="skill-row"><div class="skill-key" data-i18n="sk_next">Learning now</div><div class="skill-val">Java, Azure, AWS, Google Cloud</div></div>
-      </div>
-    </section>
+  <section id="skills">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <h2 data-i18n="sk_eyebrow">Skills</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+    <div class="skills reveal">
+      <div class="skill"><span class="skill-key mono-label" data-i18n="sk_lang">Languages &amp; platforms</span><span class="skill-val">C#, .NET, ASP.NET Core</span></div>
+      <div class="skill"><span class="skill-key mono-label" data-i18n="sk_data">Data</span><span class="skill-val" data-i18n="sk_data_v">Entity Framework Core (Code First / Database First), RDBMS, SQL, database schema design</span></div>
+      <div class="skill"><span class="skill-key mono-label" data-i18n="sk_arch">Architecture</span><span class="skill-val" data-i18n="sk_arch_v">REST API, microservices, OOP, SOLID, reverse proxy</span></div>
+      <div class="skill"><span class="skill-key mono-label" data-i18n="sk_sec">Security</span><span class="skill-val" data-i18n="sk_sec_v">SSO (Keycloak, Jira), JWT, hierarchical role-based access models</span></div>
+      <div class="skill"><span class="skill-key mono-label" data-i18n="sk_infra">Infrastructure</span><span class="skill-val">Docker, GitHub Actions, CI, Deployment, SSH</span></div>
+      <div class="skill"><span class="skill-key mono-label" data-i18n="sk_integr">Integrations</span><span class="skill-val" data-i18n="sk_integr_v">Jira Forge API, external and government services</span></div>
+      <div class="skill"><span class="skill-key mono-label" data-i18n="sk_proc">Process</span><span class="skill-val">Agile, Scrum, Waterfall</span></div>
+      <div class="skill skill--next"><span class="skill-key mono-label" data-i18n="sk_next">Learning now</span><span class="skill-val">Java, Azure, AWS, Google Cloud</span></div>
+    </div>
+  </section>
 
-    <section id="ai">
-      <p class="eyebrow"><span data-i18n="ai_eyebrow">AI in development</span></p>
+  <section id="ai">
+    <div class="sec-head reveal">
+      <span class="sec-num">04</span>
+      <h2 data-i18n="ai_eyebrow">AI in development</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+    <div class="panel reveal">
       <div class="job-body" data-i18n="ai_body">
         <ul>
           <li>I work with AI agents daily (Claude Code, GitHub Copilot, Google Gemini): feature work, refactoring and debugging &mdash; AI is part of the workflow, not an occasional experiment.</li>
@@ -514,56 +891,77 @@
           <li>I have shipped LLM features into a product: prompt design, handling model responses and quality control on the backend side.</li>
         </ul>
       </div>
-      <p class="ai-note" data-i18n="ai_note"><b>Security and control:</b> the code sits in a self-hosted GitLab inside the bank perimeter and never leaves it; client and confidential data is never sent to a model; only approved corporate tools are used. AI-assisted code goes through mandatory review, branch protection and CI &mdash; a direct push to main is not possible.</p>
-    </section>
+    </div>
+    <p class="note reveal" data-i18n="ai_note"><b>Security and control:</b> the code sits in a self-hosted GitLab inside the bank perimeter and never leaves it; client and confidential data is never sent to a model; only approved corporate tools are used. AI-assisted code goes through mandatory review, branch protection and CI &mdash; a direct push to main is not possible.</p>
+  </section>
 
-    <section id="projects">
-      <p class="eyebrow"><span data-i18n="pr_eyebrow">Pet project</span><span class="count" data-i18n="pr_note">open source</span></p>
-      <div class="projects">
-
-        <a class="project" href="https://github.com/MalikaRasulova/AICommentModerator" target="_blank" rel="noopener">
-          <div class="project-name">AICommentModerator <span class="arrow">&#8599;</span></div>
-          <p class="project-desc" data-i18n="p1">A Telegram bot that moderates comments with an LLM: an ASP.NET Core webhook takes the update, the model decides whether the comment passes, and every decision is written to a PostgreSQL audit log.</p>
-          <div class="project-side"><span class="lang">C# &middot; ASP.NET Core &middot; PostgreSQL</span><span class="year">2026</span></div>
-        </a>
-
+  <section id="projects">
+    <div class="sec-head reveal">
+      <span class="sec-num">05</span>
+      <h2 data-i18n="pr_eyebrow">Pet project</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-meta mono-label" data-i18n="pr_note">open source</span>
+    </div>
+    <a class="project reveal" href="https://github.com/MalikaRasulova/AICommentModerator" target="_blank" rel="noopener">
+      <div class="project-head">
+        <span class="project-name">AICommentModerator</span>
+        <span class="go" aria-hidden="true">&#8599;</span>
       </div>
-    </section>
-
-    <section id="education">
-      <p class="eyebrow"><span data-i18n="ed_eyebrow">Education and languages</span></p>
-      <div class="duo">
-        <div>
-          <h3 data-i18n="ed_h">Education</h3>
-          <p data-i18n="ed_body">Samarkand Law College &mdash; Jurisprudence, specialised secondary, 2018</p>
-        </div>
-        <div>
-          <h3 data-i18n="lg_h">Languages</h3>
-          <p data-i18n="lg_body">Uzbek &mdash; native<br>Russian &mdash; C1, advanced<br>English &mdash; B1, intermediate</p>
-        </div>
+      <p class="project-desc" data-i18n="p1">A Telegram bot that moderates comments with an LLM: an ASP.NET Core webhook takes the update, the model decides whether the comment passes, and every decision is written to a PostgreSQL audit log.</p>
+      <div class="project-foot">
+        <span class="chip">C#</span><span class="chip">ASP.NET Core</span><span class="chip">PostgreSQL</span><span class="chip">Telegram Bot API</span>
+        <span class="year">2026</span>
       </div>
-    </section>
+    </a>
+  </section>
 
-    <section id="contact">
-      <p class="eyebrow"><span data-i18n="ct_eyebrow">Contact</span></p>
-      <h2 data-i18n="ct_head">Backend work and collaboration</h2>
-      <p data-i18n="ct_body">Open to .NET backend roles and project work. Email or Telegram gets the fastest reply.</p>
+  <section id="education">
+    <div class="sec-head reveal">
+      <span class="sec-num">06</span>
+      <h2 data-i18n="ed_eyebrow">Education and languages</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+    <div class="duo reveal">
+      <div>
+        <h3 data-i18n="ed_h">Education</h3>
+        <p data-i18n="ed_body">Samarkand Law College &mdash; Jurisprudence, specialised secondary, 2018</p>
+      </div>
+      <div>
+        <h3 data-i18n="lg_h">Languages</h3>
+        <p data-i18n="lg_body">Uzbek &mdash; native<br>Russian &mdash; C1, advanced<br>English &mdash; B1, intermediate</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head reveal">
+      <span class="sec-num">07</span>
+      <h2 data-i18n="ct_eyebrow">Contact</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+    <div class="contact-card reveal">
+      <h3 class="contact-head" data-i18n="ct_head">Backend work and collaboration</h3>
+      <p class="p" data-i18n="ct_body">Open to .NET backend roles and project work. Email or Telegram gets the fastest reply.</p>
+      <!-- EDIT: contacts -->
+      <a class="mail-btn" href="mailto:mrxonly616@gmail.com">
+        <span class="v">mrxonly616@gmail.com</span>
+        <span class="go" aria-hidden="true">&#8599;</span>
+      </a>
       <div class="contact-grid">
-        <a href="mailto:mrxonly616@gmail.com"><span class="k">Email</span><span class="v">mrxonly616@gmail.com</span></a>
-        <a href="https://t.me/malika53" target="_blank" rel="noopener"><span class="k">Telegram</span><span class="v">@malika53</span></a>
-        <a href="https://www.linkedin.com/in/malika53" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">in/malika53</span></a>
-        <a href="https://github.com/MalikaRasulova" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">MalikaRasulova</span></a>
+        <a href="https://t.me/malika53" target="_blank" rel="noopener"><span class="k mono-label">Telegram</span><span class="v">@malika53</span></a>
+        <a href="https://www.linkedin.com/in/malika53" target="_blank" rel="noopener"><span class="k mono-label">LinkedIn</span><span class="v">in/malika53</span></a>
+        <a href="https://github.com/MalikaRasulova" target="_blank" rel="noopener"><span class="k mono-label">GitHub</span><span class="v">MalikaRasulova</span></a>
       </div>
-    </section>
-
-  </main>
+      <p class="contact-meta mono-label" data-i18n="meta">Tashkent, Uzbekistan<br>Uzbek &middot; Russian C1 &middot; English B1</p>
+    </div>
+  </section>
 
   <footer>
-    <span>&copy; 2026 Malika Rasulova</span>
-    <span data-i18n="foot">Tashkent, Uzbekistan</span>
+    <span class="mono-label">&copy; 2026 Malika Rasulova</span>
+    <span class="mono-label" data-i18n="foot">Tashkent, Uzbekistan</span>
   </footer>
 
-</div>
+</main>
 
 <script>
 /* ============================ I18N ============================
@@ -617,7 +1015,9 @@ var I18N = {
     ct_eyebrow: "Contact",
     ct_head: "Backend work and collaboration",
     ct_body: "Open to .NET backend roles and project work. Email or Telegram gets the fastest reply.",
-    foot: "Tashkent, Uzbekistan"
+    foot: "Tashkent, Uzbekistan",
+    st_years: "years of experience", st_companies: "companies",
+    st_systems: "systems", st_langs: "languages"
   },
 
   uz: {
@@ -665,7 +1065,9 @@ var I18N = {
     ct_eyebrow: "Aloqa",
     ct_head: "Backend loyihalar va hamkorlik",
     ct_body: ".NET backend yo&rsquo;nalishidagi ish va loyihalarni ko&rsquo;rib chiqaman. Eng tez javob &mdash; pochta yoki Telegram orqali.",
-    foot: "Toshkent, O&rsquo;zbekiston"
+    foot: "Toshkent, O&rsquo;zbekiston",
+    st_years: "yillik tajriba", st_companies: "kompaniya",
+    st_systems: "tizim", st_langs: "til"
   },
 
   ru: {
@@ -713,7 +1115,9 @@ var I18N = {
     ct_eyebrow: "Контакты",
     ct_head: "Backend-проекты и сотрудничество",
     ct_body: "Рассматриваю предложения по .NET backend и проектную работу. Быстрее всего отвечу на письмо или в Telegram.",
-    foot: "Ташкент, Узбекистан"
+    foot: "Ташкент, Узбекистан",
+    st_years: "года опыта", st_companies: "компаний",
+    st_systems: "систем", st_langs: "языка"
   }
 };
 
@@ -783,26 +1187,87 @@ var I18N = {
 /* ---------- section nav highlight ---------- */
 (function () {
   var links = document.querySelectorAll(".toc a");
-  if (!links.length || !("IntersectionObserver" in window)) { return; }
+  if (!links.length) { return; }
 
-  var map = {};
+  var sections = [], anchors = [];
   for (var i = 0; i < links.length; i++) {
-    map[links[i].getAttribute("href").slice(1)] = links[i];
+    var el = document.getElementById(links[i].getAttribute("href").slice(1));
+    if (el) { sections.push(el); anchors.push(links[i]); }
   }
-  links[0].setAttribute("aria-current", "true");
+  if (!sections.length) { return; }
+
+  var tops = [];
+
+  function measure() {
+    tops = [];
+    for (var i = 0; i < sections.length; i++) {
+      tops.push(sections[i].getBoundingClientRect().top + window.pageYOffset);
+    }
+    update();
+  }
+
+  function update() {
+    var y = window.pageYOffset;
+    var line = y + window.innerHeight * 0.32;
+    var active = 0;
+    for (var i = 0; i < tops.length; i++) {
+      if (tops[i] <= line) { active = i; }
+    }
+    if (y + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+      active = tops.length - 1;
+    }
+    for (var j = 0; j < anchors.length; j++) {
+      if (j === active) { anchors[j].setAttribute("aria-current", "true"); }
+      else { anchors[j].removeAttribute("aria-current"); }
+    }
+  }
+
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", measure);
+  window.addEventListener("load", measure);
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(measure); }
+  measure();
+})();
+/* ---------- reveal on scroll ---------- */
+(function () {
+  var nodes = document.querySelectorAll(".reveal");
+  if (!nodes.length || !("IntersectionObserver" in window)) { return; }
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { return; }
+
+  document.documentElement.setAttribute("data-reveal", "");
 
   var observer = new IntersectionObserver(function (entries) {
     for (var i = 0; i < entries.length; i++) {
       if (!entries[i].isIntersecting) { continue; }
-      for (var id in map) { map[id].removeAttribute("aria-current"); }
-      var active = map[entries[i].target.id];
-      if (active) { active.setAttribute("aria-current", "true"); }
+      entries[i].target.className += " in";
+      observer.unobserve(entries[i].target);
     }
-  }, { rootMargin: "-10% 0px -70% 0px", threshold: 0 });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
 
-  var sections = document.querySelectorAll("main section[id]");
-  for (var j = 0; j < sections.length; j++) { observer.observe(sections[j]); }
+  for (var j = 0; j < nodes.length; j++) { observer.observe(nodes[j]); }
 })();
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Malika Rasulova",
+  "jobTitle": "Backend developer",
+  "url": "https://malikarasulova.github.io/",
+  "image": "https://malikarasulova.github.io/portrait.jpg",
+  "email": "mailto:mrxonly616@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
+  "knowsLanguage": ["uz", "ru", "en"],
+  "knowsAbout": ["C#", ".NET", "ASP.NET Core", "Entity Framework Core", "REST API", "Keycloak", "Docker", "SQL", "Java"],
+  "worksFor": { "@type": "Organization", "name": "BRB-TECH", "url": "https://brb-tech.uz/" },
+  "sameAs": [
+    "https://github.com/MalikaRasulova",
+    "https://www.linkedin.com/in/malika53",
+    "https://t.me/malika53"
+  ]
+}
+</script>
+
 </body>
 </html>
