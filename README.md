@@ -44,7 +44,7 @@ by JS (`data-reveal` on `<html>`), so with JS off everything stays visible.
 
 Look for `<!-- EDIT -->` comments in `index.html`. What to change:
 
-1. **Contacts** — email, Telegram, LinkedIn, GitHub, all inside `.contact-card`.
+1. **Contacts** — email, Telegram, Instagram, Website, GitHub, all inside `.contact-card`.
    The email is the big pill (`.mail-btn`); the rest are tiles. The GitHub link
    also appears as the second hero button.
 2. **Name** — the `h1` (two `span`s; `.l2` is the terracotta half) and the
